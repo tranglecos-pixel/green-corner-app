@@ -127,8 +127,36 @@
   .bang { position:absolute; inset:0; background:rgba(0,0,0,.45); display:none; align-items:flex-end; z-index:10; }
   .bang.hien { display:flex; }
   .bang > div { background:#fff; border-radius:24px 24px 0 0; padding:20px 18px 26px; width:100%; max-height:85%; overflow-y:auto; text-align:left; }
-  .bang h3 { margin:0 0 8px; color:var(--vien); }
-  .bang li { margin:7px 0; line-height:1.4; }
+  .bang h3 { margin:0 0 12px; color:var(--vien); font-size:1.3rem; }
+  .tay-keo { width:44px; height:5px; border-radius:3px; background:#d5ddd7; margin:-6px auto 14px; }
+  .cot-tt { display:flex; flex-direction:column; gap:10px; }
+  .the-tt { display:flex; gap:12px; align-items:flex-start; background:#f1f8f2; border-radius:16px; padding:12px 14px; font-size:.95rem; line-height:1.45; }
+  .the-tt .bt { font-size:1.6rem; line-height:1; flex-shrink:0; }
+  .nguon-hop { margin:12px 0 4px; background:#f6f6f4; border-radius:16px; padding:10px 14px; font-size:.85rem; }
+  .nguon-hop summary { font-weight:800; cursor:pointer; color:var(--vien); }
+  .nguon-hop ul { margin:8px 0 0; padding-left:16px; }
+  .nguon-hop li { margin:6px 0; line-height:1.4; }
+  .nguon-hop a { color:#1565c0; word-break:break-all; }
+  /* nghe thử trên trang chủ */
+  .ve-dl { width:100%; max-width:330px; margin-top:12px; background:#fff; border-radius:22px; padding:12px 14px; text-align:left; box-shadow:0 3px 0 rgba(0,0,0,.08); }
+  .ve-dl summary { font-weight:800; cursor:pointer; color:var(--vien); font-size:1.05rem; }
+  .ve-dl .cot-tt { margin-top:10px; }
+  .the-tt ul { margin:6px 0 0; padding-left:16px; font-size:.85rem; }
+  .the-tt li { margin:5px 0; line-height:1.4; }
+  .the-tt a { color:#1565c0; word-break:break-all; }
+  .nghe-thu { width:100%; max-width:330px; margin-top:14px; background:#fff; border-radius:22px; padding:16px 14px 14px; box-shadow:0 3px 0 rgba(0,0,0,.08); display:flex; flex-direction:column; align-items:center; gap:8px; }
+  .nghe-thu h3 { margin:0; color:var(--vien); font-size:1.15rem; }
+  .nghe-thu p { margin:0; font-size:.9rem; color:var(--nhat); }
+  .o-am { display:grid; grid-template-columns:1fr 1fr; gap:10px; width:100%; margin:4px 0 6px; }
+  .o-am-the { border:none; border-radius:18px; padding:12px 8px 10px; font:inherit; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:3px; color:var(--chu); box-shadow:0 3px 0 rgba(0,0,0,.12); transition:transform .15s; }
+  .o-am-the:active { transform:translateY(3px); box-shadow:none; }
+  .o-am-the .bt { font-size:1.9rem; line-height:1.1; }
+  .o-am-the .ten { font-weight:800; font-size:.95rem; }
+  .o-am-the .mo { font-size:.78rem; color:var(--nhat); line-height:1.3; }
+  .o-am-the .vach { width:80%; height:7px; border-radius:4px; background:rgba(0,0,0,.08); overflow:hidden; margin-top:4px; }
+  .o-am-the .vach i { display:block; height:100%; width:0; border-radius:4px; transition:width 1.8s linear; }
+  .o-am-the .muc-nghe { font-size:.78rem; font-weight:800; min-height:1.1em; }
+  .o-am-the.dang { outline:3px solid currentColor; }
 </style>
 </head>
 <body>
@@ -171,7 +199,6 @@
 
   <!-- MÀN CHÀO -->
   <section class="man" id="man-chao" style="justify-content:center;gap:12px;padding-top:30px">
-    <button class="nut-goc phai" data-mo-bang type="button" data-i18n="hd_nut"></button>
     <svg class="mam-xanh" viewBox="0 0 200 200" aria-label="Mầm Xanh">
       <path d="M100 70 C100 50 100 40 100 30" stroke="#3f9b3a" stroke-width="7" fill="none" stroke-linecap="round"/>
       <ellipse cx="72" cy="38" rx="28" ry="15" fill="#6cc864" transform="rotate(-25 72 38)"/>
@@ -199,6 +226,15 @@
       <button class="the the-dai" data-di="man-chang" type="button"><span class="hinh">🧭</span><span><span class="ten" data-i18n="kp_ch"></span><span class="mo" data-i18n="kp_ch_mo"></span></span></button>
       <button class="the the-dai" data-di="man-ban-do" type="button"><span class="hinh">📍</span><span><span class="ten" data-i18n="kp_dd"></span><span class="mo" data-i18n="kp_dd_mo"></span></span></button>
     </div>
+    <div class="nghe-thu">
+      <h3 data-i18n="nt_td"></h3>
+      <p data-i18n="nt_hd"></p>
+      <div class="o-am" id="o-am"></div>
+    </div>
+    <details class="ve-dl">
+      <summary data-i18n="ve_du_lieu"></summary>
+      <div id="dl-the" class="cot-tt"></div>
+    </details>
   </section>
 
   <!-- BẢN ĐỒ -->
@@ -285,13 +321,6 @@
     <button type="button" id="f-tieng" aria-label="Đổi ngôn ngữ">EN</button>
   </div>
   <div class="bao" id="bao"></div>
-  <div class="bang" id="bang-hd"><div>
-    <h3 data-i18n="hd_td"></h3>
-    <ul id="hd-ds" style="padding-left:18px"></ul>
-    <h3 data-i18n="nguon_td" style="margin-top:14px"></h3>
-    <ul class="nguon-ds nguon" style="padding-left:18px"></ul>
-    <button class="nut nut-chinh" id="hd-dong" type="button" data-i18n="hd_dong"></button>
-  </div></div>
 </main>
 
 <script>
@@ -318,7 +347,7 @@ const CHU = {
   wc_hoi:'Đôi tai của bạn có nghe ra điều mà đôi mắt bỏ lỡ?',
   chao:'🌱 Chào bạn! Mình là <b>Mầm Xanh</b>. Cùng mình nghe xem bầu trời ở khắp nơi đang thở thế nào nhé!',
   khau_hieu:'Từ một góc xanh nhỏ, lắng nghe bầu trời của cả Trái Đất',
-  bat_dau:'Bắt đầu khám phá', mg_nut:'🎮 Minigame', xem_lai:'📖 Xem lại câu chuyện', ve:'⬅ Về', hd_nut:'📖 Hướng dẫn',
+  bat_dau:'Bắt đầu khám phá', mg_nut:'🎮 Minigame', xem_lai:'📖 Xem lại câu chuyện', ve:'⬅ Về', ve_du_lieu:'ℹ️ Về dữ liệu', nt_td:'🎧 Nghe thử 4 âm thanh', nt_hd:'Chạm vào một thẻ: nghe lúc ÍT, rồi lúc NHIỀU.', it:'Ít…', nhieu:'Nhiều!',
   kp_td:'🌍 Khám phá', kp_hoi:'Bạn muốn khám phá theo cách nào?',
   kp_tg:'Theo thời gian', kp_tg_mo:'Nghe không khí thay đổi suốt mùa hè 2024',
   kp_ch:'Theo chặng', kp_ch_mo:'Chia mùa hè thành 10 chặng, chạm để nghe',
@@ -347,14 +376,13 @@ const CHU = {
   vung_a:'Châu Á', vung_au:'Châu Âu & Phi', vung_my:'Châu Mỹ',
   troi_trong:'Trong lành', troi_mo:'Hơi mờ', troi_mu:'Mù bụi',
   nguon_mg:'Số liệu: mức tương đối 0–100 đọc từ màu bản đồ NASA SVS 5533 (mô hình GEOS-CF, NASA GMAO), mùa hè 2024.',
-  hd_td:'📖 Cách nghe bầu trời',
   hd_dong:'Mình hiểu rồi!',
-  hd: ['🌫️ <b>Bụi mịn PM2.5</b> → tiếng gió sương mù. Càng to và dày là càng nhiều bụi.',
-       '🔔 <b>Ozone O₃</b> → tiếng chuông. Chuông càng cao là càng nhiều ozone.',
-       '🔥 <b>Khí CO</b> (thường từ cháy rừng) → tiếng trống và lửa tí tách. Trống càng dồn là càng nhiều CO.',
-       '🚗 <b>Khí NOₓ</b> (thường từ xe cộ, nhà máy) → tiếng động cơ ù ù, nhiều thì có còi xe.',
-       '📏 Số 0–100 là <b>mức tương đối</b>, đọc từ màu trên bản đồ NASA, so sánh giữa các nơi. Đây không phải nồng độ đo thật (ppb, µg/m³).',
-       '🗓️ NASA không ghi ngày trên từng hình, nên app chia mùa hè 2024 thành các mốc và chặng.'],
+  am_mo: { PM25:'Gió sương mù · càng to càng nhiều bụi', O3:'Tiếng chuông · càng cao càng nhiều ozone', CO:'Trống, lửa tí tách · càng dồn càng nhiều CO', NOx:'Động cơ, còi xe · càng ồn càng nhiều NOₓ' },
+  ten_ngan: { PM25:'Bụi mịn', O3:'Ozone', CO:'Khí CO', NOx:'Khí NOₓ' },
+  du_lieu: [['🛰️','Số liệu lấy từ bản đồ <b>NASA SVS 5533</b> (mô hình GEOS-CF), mùa hè 2024, cho 32 thành phố.'],
+            ['📏','Số 0–100 là <b>mức so sánh giữa các nơi</b>, đọc từ màu bản đồ. Đây không phải nồng độ đo thật (ppb, µg/m³).'],
+            ['🗓️','NASA không ghi ngày trên từng hình, nên app chia mùa hè thành <b>300 mốc</b> và <b>10 chặng</b>.'],
+            ['🎼','Âm thanh do máy tự tạo từ con số (<b>sonification</b>), không phải tiếng thu từ bầu trời.']],
   ten_chat: { PM25:'Bụi mịn PM2.5', O3:'Ozone O₃', CO:'Khí CO', NOx:'Khí NOₓ' },
   ngan_chat: { PM25:'bụi mịn', O3:'ozone', CO:'khí CO', NOx:'khí NOₓ' },
   gt_td:'🌱 Mầm Xanh giải thích',
@@ -383,7 +411,7 @@ const CHU = {
   wc_hoi:'Can your ears discover something your eyes might miss?',
   chao:'🌱 Hi! I\'m <b>Sprout</b>. Let\'s listen to how the sky is breathing all around the world!',
   khau_hieu:'From one small green corner, listen to the sky of the whole Earth',
-  bat_dau:'Start exploring', mg_nut:'🎮 Mini-games', xem_lai:'📖 See our story again', ve:'⬅ Back', hd_nut:'📖 How to play',
+  bat_dau:'Start exploring', mg_nut:'🎮 Mini-games', xem_lai:'📖 See our story again', ve:'⬅ Back', ve_du_lieu:'ℹ️ About the data', nt_td:'🎧 Try the 4 sounds', nt_hd:'Tap a card: hear a LITTLE, then A LOT.', it:'A little…', nhieu:'A lot!',
   kp_td:'🌍 Explore', kp_hoi:'How would you like to explore?',
   kp_tg:'By time', kp_tg_mo:'Hear the air change through summer 2024',
   kp_ch:'By stage', kp_ch_mo:'Summer split into 10 stages, tap to listen',
@@ -412,14 +440,13 @@ const CHU = {
   vung_a:'Asia', vung_au:'Europe & Africa', vung_my:'Americas',
   troi_trong:'Clear', troi_mo:'A bit hazy', troi_mu:'Very hazy',
   nguon_mg:'Data: relative level 0–100 read from the colours of NASA SVS 5533 (GEOS-CF model, NASA GMAO), summer 2024.',
-  hd_td:'📖 How to listen to the sky',
   hd_dong:'Got it!',
-  hd: ['🌫️ <b>Fine dust PM2.5</b> → foggy wind. Louder and thicker means more dust.',
-       '🔔 <b>Ozone O₃</b> → bells. Higher bells mean more ozone.',
-       '🔥 <b>Carbon monoxide CO</b> (often from wildfires) → drums and crackling fire. Faster drums mean more CO.',
-       '🚗 <b>Nitrogen oxides NOₓ</b> (often from traffic and factories) → engine hum, with horns when high.',
-       '📏 0–100 is a <b>relative level</b> read from the NASA map colours, for comparing places. It is not a measured concentration (ppb, µg/m³).',
-       '🗓️ NASA does not print dates on each image, so the app splits summer 2024 into steps and stages.'],
+  am_mo: { PM25:'Foggy wind · louder = more dust', O3:'Bells · higher = more ozone', CO:'Drums, crackling fire · faster = more CO', NOx:'Engine, horns · noisier = more NOₓ' },
+  ten_ngan: { PM25:'Fine dust', O3:'Ozone', CO:'CO', NOx:'NOₓ' },
+  du_lieu: [['🛰️','Numbers come from the <b>NASA SVS 5533</b> map (GEOS-CF model), summer 2024, for 32 cities.'],
+            ['📏','0–100 is a <b>level for comparing places</b>, read from the map colours. It is not a measured concentration (ppb, µg/m³).'],
+            ['🗓️','NASA does not print dates on each image, so the app splits summer into <b>300 steps</b> and <b>10 stages</b>.'],
+            ['🎼','The sounds are made by the computer from the numbers (<b>sonification</b>), not recorded from the sky.']],
   ten_chat: { PM25:'Fine dust PM2.5', O3:'Ozone O₃', CO:'Carbon monoxide CO', NOx:'Nitrogen oxides NOₓ' },
   ngan_chat: { PM25:'fine dust', O3:'ozone', CO:'CO', NOx:'NOₓ' },
   gt_td:'🌱 Sprout explains',
@@ -904,16 +931,38 @@ function g6Xep(v) {
   than.appendChild(xem); ve();
 }
 
+// ---------- NGHE THỬ 4 ÂM THANH (trang chủ) ----------
+const NEN = { PM25:'#f7ead8', O3:'#ece8ff', CO:'#fde3dc', NOx:'#e0f3e3' };
+function veOAm() {
+  const hop = $('o-am'); hop.innerHTML = '';
+  for (const c of CHAT) {
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'o-am-the'; b.style.background = NEN[c];
+    b.innerHTML = `<span class="bt">${ICON[c]}</span><span class="ten" style="color:${MAU[c]}">${t('ten_ngan')[c]}</span>
+      <span class="mo">${t('am_mo')[c]}</span><span class="vach"><i style="background:${MAU[c]}"></i></span><span class="muc-nghe" style="color:${MAU[c]}"></span>`;
+    b.onclick = () => ngheThu(c, b);
+    hop.appendChild(b);
+  }
+}
+function ngheThu(c, b) {
+  am(); dungAm(); dungDoc();
+  document.querySelectorAll('.o-am-the').forEach(x => { x.classList.remove('dang'); x.querySelector('.vach i').style.transition='none'; x.querySelector('.vach i').style.width='0'; x.querySelector('.muc-nghe').textContent=''; });
+  const v = b.querySelector('.vach i'), m = b.querySelector('.muc-nghe'), t0 = ctx.currentTime + .05;
+  b.style.color = MAU[c]; b.classList.add('dang');
+  PHAT[c](.12, t0, 1.8); PHAT[c](.92, t0 + 2.1, 1.8);
+  requestAnimationFrame(() => { v.style.transition = 'width .4s'; v.style.width = '15%'; m.textContent = t('it'); });
+  henGio.push(setTimeout(() => { v.style.transition = 'width .5s'; v.style.width = '95%'; m.textContent = t('nhieu'); }, 2100));
+  henGio.push(setTimeout(() => { b.classList.remove('dang'); m.textContent = ''; v.style.width = '0'; }, 4200));
+}
+
 // ---------- HƯỚNG DẪN & NGÔN NGỮ ----------
-document.addEventListener('click', e => { if (e.target.closest('[data-mo-bang]')) $('bang-hd').classList.add('hien'); });
-$('hd-dong').onclick = () => $('bang-hd').classList.remove('hien');
-$('bang-hd').onclick = e => { if (e.target.id === 'bang-hd') $('bang-hd').classList.remove('hien'); };
 function apDung() {
   document.documentElement.lang = lang;
   document.querySelectorAll('[data-i18n]').forEach(el => el.textContent = t(el.dataset.i18n));
   document.querySelectorAll('[data-i18n-html]').forEach(el => el.innerHTML = t(el.dataset.i18nHtml));
   $('f-tieng').textContent = lang === 'vi' ? 'EN' : 'VI';
-  $('hd-ds').innerHTML = t('hd').map(x=>`<li>${x}</li>`).join('');
+  $('dl-the').innerHTML = t('du_lieu').map(([b,x]) => `<div class="the-tt"><span class="bt">${b}</span><span>${x}</span></div>`).join('')
+    + `<div class="the-tt"><span class="bt">📡</span><span><b>${t('nguon_td').replace(/^\S+\s/,'')}</b><ul class="nguon-ds"></ul></span></div>`;
+  veOAm();
   $('wc-4').innerHTML = CHAT.map(c=>`<div><b>${ICON[c]}</b>${tenChat(c)}</div>`).join('');
   const nguonHtml = [
     `<li>NASA SVS 5533 – Air Quality Model Runs: <a href="https://svs.gsfc.nasa.gov/5533/" target="_blank" rel="noopener">svs.gsfc.nasa.gov/5533</a></li>`,
@@ -945,9 +994,9 @@ function sachChu(s) {
 }
 // những gì được đọc trên màn hiện tại (bỏ qua danh sách nút thành phố)
 function cacDoan() {
-  const man = document.querySelector('.bang.hien > div') || document.querySelector('.man.hien');
+  const man = document.querySelector('.man.hien');
   const goc = man.id === 'man-welcome' ? man.querySelector('.wc-trang.hien') : man;
-  const chon = 'h1, h2, h3, p, .loi-mam, .wc-the, .wc-4 div, .ve-tinh, .cac-so li, .giai-thich, .ket-qua, .the .ten, .xep li, .bang li, .nhan-anh';
+  const chon = 'h1, h2, h3, p, .loi-mam, .wc-the, .wc-4 div, .ve-tinh, .cac-so li, .giai-thich, .ket-qua, .the .ten, .o-am-the, .xep li, .the-tt, .nhan-anh';
   return [...goc.querySelectorAll(chon)].filter(el => el.offsetParent !== null && !el.closest('.ds-noi') && !el.parentElement.closest(chon) && sachChu(el.innerText).length > 1);
 }
 function boDanhDau() { document.querySelectorAll('.dang-doc').forEach(e => e.classList.remove('dang-doc')); }
@@ -995,7 +1044,7 @@ async function docTo() {
 }
 $('f-doc').onclick = docTo;
 if (TTS) { TTS.getVoices(); TTS.onvoiceschanged = () => TTS.getVoices(); }
-$('hd-dong').addEventListener('click', dungDoc);
+
 apDung();
 </script>
 </body>
