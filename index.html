@@ -13,7 +13,7 @@
   .dien-thoai { position:relative; width:100%; max-width:390px; height:min(844px,calc(100vh - 32px)); min-height:560px;
          background:var(--nen); border:10px solid var(--vien); border-radius:44px; overflow:hidden; }
   @media (max-width:480px){ body{padding:0} .dien-thoai{max-width:none;height:100vh;height:100dvh;min-height:0;border-width:6px;border-radius:0} }
-  .man { position:absolute; inset:0; display:none; flex-direction:column; align-items:center; padding:64px 18px 132px; text-align:center; overflow-y:auto; }
+  .man { position:absolute; inset:0; display:none; flex-direction:column; align-items:center; padding:72px 18px 32px; text-align:center; overflow-y:auto; }
   .man.hien { display:flex; }
   /* vẫn cuộn được nhưng ẩn thanh cuộn */
   .man, .bang > div { scrollbar-width:none; -ms-overflow-style:none; }
@@ -88,32 +88,99 @@
   .giai-thich .nho { display:block; margin-top:6px; font-size:.8rem; }
   .xep li::before { content:counter(x) ". "; color:var(--mau-nut); }
   /* welcome */
-  #man-welcome { background:linear-gradient(#0f2a4a,#24507a 60%,#3d7a5a); color:#fff; justify-content:space-between; padding:84px 22px 26px; }
+  #man-welcome { background:radial-gradient(120% 70% at 50% 0%, #0e2a4a, #071428 60%), #071428; color:#f2f7f3; justify-content:space-between; padding:84px 22px 26px; }
+  #man-welcome > * { position:relative; z-index:1; }
+  #man-welcome > .wc-bau-troi, #man-welcome > .wc-anh-sang { position:absolute; z-index:0; pointer-events:none; }
+  #man-welcome > .nut-goc { position:absolute; z-index:3; }
+  .wc-bau-troi { inset:0; }
+  .wc-bau-troi i { position:absolute; border-radius:50%; background:#fff; animation:wc-lap-lanh 3s ease-in-out infinite; }
+  @keyframes wc-lap-lanh { 50% { opacity:.2; } }
+  .wc-anh-sang { left:-20%; right:-20%; bottom:-30%; height:60%; background:radial-gradient(closest-side, rgba(126,224,138,.28), transparent); }
   .wc-giua { margin:auto 0; width:100%; padding:8px 0 16px; }
-  #man-welcome h1 { color:#fff; font-size:1.8rem; line-height:1.25; }
-  #man-welcome .noi { color:#ffd76a; }
-  .wc-trang { display:none; flex-direction:column; align-items:center; gap:10px; }
+  #man-welcome h1 { margin:0; color:#f2f7f3; font-size:1.85rem; line-height:1.2; font-weight:800; }
+  #man-welcome .noi { color:#7ee08a; }
+  .wc-trang { display:none; flex-direction:column; align-items:center; gap:16px; }
   .wc-trang.hien { display:flex; }
-  .wc-nhan { background:rgba(255,255,255,.15); border-radius:999px; padding:5px 12px; font-size:.85rem; font-weight:700; letter-spacing:.03em; }
-  .wc-loi { font-size:1.02rem; margin:0; }
-  .wc-the { background:rgba(255,255,255,.12); border-radius:14px; padding:10px 12px; font-size:.92rem; text-align:left; }
-  .wc-nguon { width:100%; background:rgba(255,255,255,.12); border-radius:14px; padding:9px 12px; font-size:.85rem; text-align:left; }
-  .wc-nguon summary { font-weight:800; cursor:pointer; }
-  .wc-nguon ul { margin:6px 0 0; padding-left:16px; }
-  .wc-nguon li { margin:5px 0; line-height:1.4; }
-  .wc-nguon a { color:#ffd76a; word-break:break-all; }
-  .bang .nguon li { font-size:.9rem; }
-  .bang .nguon a { color:#1565c0; word-break:break-all; }
-  .wc-cham { display:flex; gap:6px; justify-content:center; margin-bottom:10px; }
-  .wc-cham i { width:9px; height:9px; border-radius:50%; background:rgba(255,255,255,.35); }
-  .wc-cham i.hien { background:#ffd76a; width:22px; border-radius:5px; }
-  .wc-4 { display:grid; grid-template-columns:1fr 1fr; gap:8px; width:100%; }
-  .wc-4 div { background:rgba(255,255,255,.12); border-radius:12px; padding:8px; font-size:.88rem; }
-  .wc-4 b { display:block; font-size:1.4rem; }
-  #man-welcome .nut-goc { background:transparent; color:#fff; border-color:rgba(255,255,255,.6); }
+  .wc-hinh { width:190px; height:190px; flex-shrink:0; }
+  .wc-nhan { font-size:.8rem; letter-spacing:3px; text-transform:uppercase; color:#7ee08a; font-weight:800; }
+  .wc-loi { margin:0; font-size:1.02rem; line-height:1.6; color:#b9d3c4; max-width:330px; }
+  .wc-loi b { color:#f2f7f3; }
+  .wc-cau-lon { margin:0; font-size:1.15rem; line-height:1.45; font-weight:800; color:#ffd76a; max-width:330px; }
+  .wc-the { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); border-radius:18px; padding:12px 14px; font-size:.9rem; line-height:1.5; color:#b9d3c4; max-width:330px; text-align:left; }
+  .wc-the b { color:#f2f7f3; }
+  .wc-sonif { width:100%; max-width:330px; padding:2px 0; display:flex; flex-direction:column; gap:10px; }
+  .wc-sonif-dong { display:flex; align-items:center; justify-content:center; gap:18px; margin-bottom:14px; }
+  .wc-hop { width:100%; max-width:330px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); border-radius:16px; padding:10px 14px; text-align:left; }
+  .wc-hop summary { font-weight:800; cursor:pointer; color:#dfeee6; font-size:.95rem; list-style-position:inside; }
+  .wc-hop[open] summary { margin-bottom:8px; }
+  .wc-hop .wc-loi { font-size:.95rem; text-align:left; }
+  .wc-sonif-dong > span { display:flex; flex-direction:column; align-items:center; gap:6px; width:auto; font-size:.8rem; font-weight:700; color:#dfeee6; line-height:1.25; }
+  .wc-sonif-dong .bt { display:inline-block; font-size:2.2rem; line-height:1; font-weight:400; filter:drop-shadow(0 4px 10px rgba(126,224,138,.25)); }
+  .wc-sonif-dong i { font-style:normal; color:#7ee08a; font-weight:800; animation:wc-mui 1.6s ease-in-out infinite; }
+  .wc-sonif-dong i:nth-of-type(2) { animation-delay:.4s; }
+  @keyframes wc-mui { 50% { transform:translateX(3px); opacity:.6; } }
+  .wc-sonif p { margin:0; font-size:.9rem; line-height:1.5; color:#b9d3c4; }
+  .wc-sonif p b { color:#f2f7f3; }
+  .wc-hanh-trinh { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; width:100%; max-width:330px; }
+  .wc-buoc { display:flex; flex-direction:column; align-items:center; gap:6px; font-size:.78rem; font-weight:700; }
+  .wc-buoc span:first-child { width:54px; height:54px; border-radius:50%; display:grid; place-items:center; font-size:1.6rem;
+         background:rgba(126,224,138,.14); border:2px solid rgba(126,224,138,.6); animation:wc-noi-len 2.4s ease-in-out infinite; }
+  .wc-buoc:nth-child(2) span:first-child { animation-delay:.3s; }
+  .wc-buoc:nth-child(3) span:first-child { animation-delay:.6s; }
+  .wc-buoc:nth-child(4) span:first-child { animation-delay:.9s; }
+  @keyframes wc-noi-len { 50% { transform:translateY(-5px); box-shadow:0 6px 16px rgba(126,224,138,.35); } }
+  .wc-chan { width:100%; display:flex; flex-direction:column; gap:12px; align-items:center; }
+  .wc-cham { display:flex; gap:8px; justify-content:center; }
+  .wc-cham i { width:8px; height:8px; border-radius:999px; background:rgba(255,255,255,.3); transition:all .3s; }
+  .wc-cham i.hien { width:24px; background:#7ee08a; }
+  .wc-nut { width:100%; max-width:330px; border-radius:999px; padding:15px; font:inherit; font-size:1.1rem; font-weight:800; cursor:pointer; text-align:center; text-decoration:none; display:block; }
+  .wc-nut-chinh { background:linear-gradient(135deg,#8ff09a,#2e9e44); color:#06240f; border:none; box-shadow:0 8px 24px rgba(46,158,68,.45); }
+  .wc-nut-yt { background:transparent; color:#ff8a80; border:2px solid #ff6b5e; padding:11px; font-size:1rem; }
+  .wc-nut-yt[hidden] { display:none; }
+  .wc-hang { display:flex; gap:10px; width:100%; max-width:330px; }
+  .wc-hang .wc-nut-chinh { flex:1; white-space:nowrap; }
+  .wc-nut-lui { width:76px; flex:0 0 76px; border:none; color:#c9f5cf; background:rgba(126,224,138,.12);
+         box-shadow:inset 0 0 0 2px rgba(126,224,138,.55); transition:transform .15s, background .2s; }
+  .wc-nut-lui:hover { background:rgba(126,224,138,.2); }
+  .wc-nut-lui:active, .wc-nut-chinh:active { transform:translateY(2px) scale(.98); }
+  .wc-nut-lui .mui { display:inline-block; transition:transform .2s; }
+  .wc-nut-lui:hover .mui { transform:translateX(-3px); }
+  .wc-nut-lui[hidden] { display:none; }
+  .wc-cay { overflow:visible; }
+  .wc-may-troi { animation:wc-troi 6s ease-in-out infinite; }
+  @keyframes wc-troi { 0%,100% { transform:translateX(-14px); } 50% { transform:translateX(14px); } }
+  .wc-may { transform-box:fill-box; transform-origin:center; animation:wc-phong 2.4s ease-in-out infinite; }
+  @keyframes wc-phong { 0%,100% { transform:translateY(0) scale(1); } 50% { transform:translateY(-3px) scale(1.04,.97); } }
+  .wc-mat { transform-box:fill-box; transform-origin:center; animation:wc-chop 4s infinite; }
+  @keyframes wc-chop { 0%,44%,52%,100% { transform:scaleY(1); } 48% { transform:scaleY(.1); } }
+  .wc-giot { opacity:0; animation:wc-roi 1.8s ease-in infinite; }
+  .wc-giot:nth-child(2) { animation-delay:.6s; } .wc-giot:nth-child(3) { animation-delay:1.2s; }
+  @keyframes wc-roi { 0% { opacity:0; transform:translateY(0); } 15% { opacity:1; } 80% { opacity:1; } 100% { opacity:0; transform:translateY(22px); } }
+  .wc-mam-moc { transform-box:fill-box; transform-origin:50% 100%; animation:wc-moc 2.8s ease-in-out infinite; }
+  @keyframes wc-moc { 0%,100% { transform:rotate(-2.5deg); } 50% { transform:rotate(2.5deg) scale(1.03); } }
+  .wc-ve-tinh { transform-origin:100px 100px; animation:wc-quay 9s linear infinite; }
+  @keyframes wc-quay { to { transform:rotate(360deg); } }
+  .wc-song { animation:wc-song 1.4s ease-in-out infinite; transform-origin:center; transform-box:fill-box; }
+  .wc-song:nth-child(2) { animation-delay:.2s; } .wc-song:nth-child(3) { animation-delay:.4s; }
+  .wc-song:nth-child(4) { animation-delay:.6s; } .wc-song:nth-child(5) { animation-delay:.8s; }
+  @keyframes wc-song { 50% { transform:scaleY(.35); } }
+  /* 4 chất: không khung, mỗi icon một kiểu chuyển động */
+  .wc-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; width:100%; max-width:340px; margin-top:4px; }
+  .wc-c { display:flex; flex-direction:column; align-items:center; gap:8px; font-size:.8rem; font-weight:700; color:#dfeee6; line-height:1.3; }
+  .wc-c b { display:inline-block; font-size:2.2rem; line-height:1; font-weight:400; filter:drop-shadow(0 4px 10px rgba(126,224,138,.25)); }
+  .wc-c-PM25 b { animation:wc-bui 3.2s ease-in-out infinite; }
+  @keyframes wc-bui { 0%,100% { transform:translateX(-5px); opacity:.7; } 50% { transform:translateX(5px); opacity:1; } }
+  .wc-c-O3 b { transform-origin:50% 8%; animation:wc-chuong 2.4s ease-in-out infinite; }
+  @keyframes wc-chuong { 0%,55%,100% { transform:rotate(0); } 10% { transform:rotate(16deg); } 20% { transform:rotate(-13deg); } 30% { transform:rotate(9deg); } 40% { transform:rotate(-5deg); } 48% { transform:rotate(2deg); } }
+  .wc-c-CO b { transform-origin:50% 100%; animation:wc-lua .9s ease-in-out infinite alternate; }
+  @keyframes wc-lua { 0% { transform:scale(1,1) rotate(-2deg); filter:drop-shadow(0 0 6px rgba(255,140,60,.35)); } 100% { transform:scale(1.07,.93) rotate(2deg); filter:drop-shadow(0 0 14px rgba(255,140,60,.75)); } }
+  .wc-c-NOx b { animation:wc-xe 2.2s ease-in-out infinite; }
+  @keyframes wc-xe { 0%,100% { transform:translateX(-7px) translateY(0); } 25% { transform:translateX(0) translateY(-2px); } 50% { transform:translateX(7px) translateY(0); } 75% { transform:translateX(0) translateY(-2px); } }
+  #man-welcome .nut-goc { background:transparent; color:#b9d3c4; border-color:rgba(255,255,255,.35); }
+  @media (prefers-reduced-motion: reduce) { #man-welcome * { animation:none !important; } }
   /* nút nổi: đọc to + đổi ngôn ngữ */
-  .noi-noi.cao { bottom:96px; }
-  .noi-noi { position:absolute; right:12px; bottom:16px; z-index:8; display:flex; flex-direction:column; gap:10px; }
+  /* nút Đọc to + Đổi ngôn ngữ: luôn ở góc trên bên trái, mọi màn hình */
+  .noi-noi { position:absolute; top:12px; left:12px; z-index:8; display:flex; flex-direction:row; gap:10px; }
   .noi-noi button { width:48px; height:48px; border-radius:50%; border:3px solid var(--vien); background:#fff; color:var(--vien);
          font:inherit; font-size:1.05rem; font-weight:800; cursor:pointer; box-shadow:0 3px 8px rgba(0,0,0,.25); padding:0; }
   .noi-noi button:active { transform:translateY(2px); }
@@ -164,35 +231,90 @@
 
   <!-- WELCOME: câu chuyện -->
   <section class="man hien" id="man-welcome">
+    <div class="wc-bau-troi" id="wc-bau-troi"></div>
+    <div class="wc-anh-sang"></div>
     <button class="nut-goc phai" id="wc-bo-qua" type="button" data-i18n="bo_qua"></button>
     <div class="wc-giua">
       <div class="wc-trang hien">
-        <svg width="150" height="150" viewBox="0 0 200 200" aria-hidden="true">
+        <svg class="wc-cay" width="170" height="170" viewBox="0 0 200 200" aria-hidden="true">
           <circle cx="100" cy="115" r="92" fill="#7ee08a" opacity=".18"/>
-          <path d="M100 150 C100 125 100 112 100 96" stroke="#5cc26a" stroke-width="7" fill="none" stroke-linecap="round"/>
-          <ellipse cx="74" cy="96" rx="28" ry="14" fill="#7ee08a" transform="rotate(-25 74 96)"/>
-          <ellipse cx="126" cy="96" rx="28" ry="14" fill="#7ee08a" transform="rotate(25 126 96)"/>
+          <g class="wc-mam-moc">
+            <path d="M100 150 C100 125 100 112 100 96" stroke="#5cc26a" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <ellipse cx="74" cy="96" rx="28" ry="14" fill="#7ee08a" transform="rotate(-25 74 96)"/>
+            <ellipse cx="126" cy="96" rx="28" ry="14" fill="#7ee08a" transform="rotate(25 126 96)"/>
+          </g>
           <path d="M58 150 h84 l-10 38 h-64 z" fill="#c9784a"/><rect x="52" y="142" width="96" height="14" rx="5" fill="#de8d5c"/>
-          <g opacity=".7"><circle cx="40" cy="55" r="14" fill="#c9c2b0"/><circle cx="58" cy="48" r="18" fill="#c9c2b0"/><circle cx="78" cy="56" r="12" fill="#c9c2b0"/></g>
+          <!-- Đám mây nhỏ: trôi qua lại, chớp mắt, rắc mưa cho cây -->
+          <g class="wc-may-troi"><g transform="translate(100 44) scale(1.45) translate(-100 -50)">
+            <g class="wc-mua">
+              <path class="wc-giot" d="M84 66 q-3 5 0 7 q3 -2 0 -7z" fill="#9fd8ff"/>
+              <path class="wc-giot" d="M100 68 q-3 5 0 7 q3 -2 0 -7z" fill="#9fd8ff"/>
+              <path class="wc-giot" d="M116 66 q-3 5 0 7 q3 -2 0 -7z" fill="#9fd8ff"/>
+            </g>
+            <g class="wc-may">
+              <ellipse cx="100" cy="56" rx="34" ry="12" fill="#e9f1f6"/>
+              <circle cx="84" cy="48" r="13" fill="#eef4f8"/>
+              <circle cx="102" cy="40" r="17" fill="#f4f8fb"/>
+              <circle cx="119" cy="49" r="12" fill="#eef4f8"/>
+              <g class="wc-mat"><circle cx="94" cy="49" r="2.6" fill="#1d3b2a"/><circle cx="110" cy="49" r="2.6" fill="#1d3b2a"/></g>
+              <path d="M98 54 q4 3.5 8 0" stroke="#1d3b2a" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+              <ellipse cx="88" cy="54" rx="3.6" ry="2.2" fill="#ffb3c4" opacity=".8"/>
+              <ellipse cx="116" cy="54" rx="3.6" ry="2.2" fill="#ffb3c4" opacity=".8"/>
+            </g>
+          </g></g>
         </svg>
         <h1 data-i18n-html="wc_td_1"></h1>
         <p class="wc-loi" data-i18n-html="wc_loi_1"></p>
       </div>
       <div class="wc-trang">
+        <!-- Quả địa cầu + vệ tinh bay vòng quanh (giống app Melon) -->
+        <svg class="wc-hinh" viewBox="0 0 200 200" aria-hidden="true">
+          <defs>
+            <radialGradient id="wc-dat" cx="38%" cy="35%" r="70%"><stop offset="0" stop-color="#7cc4ff"/><stop offset="1" stop-color="#1d5fa8"/></radialGradient>
+            <radialGradient id="wc-quang" cx="50%" cy="50%" r="50%"><stop offset=".72" stop-color="#7cc4ff" stop-opacity=".35"/><stop offset="1" stop-color="#7cc4ff" stop-opacity="0"/></radialGradient>
+          </defs>
+          <circle cx="100" cy="100" r="80" fill="url(#wc-quang)"/>
+          <circle cx="100" cy="100" r="58" fill="url(#wc-dat)"/>
+          <path d="M66 82 C74 66 96 68 99 80 C102 94 86 99 78 106 C70 112 58 98 66 82 Z" fill="#6cc864"/>
+          <path d="M118 66 C134 68 148 80 144 94 C137 100 125 95 118 86 C113 79 112 69 118 66 Z" fill="#6cc864"/>
+          <path d="M110 128 C120 123 136 128 134 138 C130 148 115 149 107 142 C103 137 105 131 110 128 Z" fill="#6cc864"/>
+          <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(255,255,255,.18)" stroke-dasharray="3 6"/>
+          <g class="wc-ve-tinh"><text x="100" y="26" font-size="20" text-anchor="middle">🛰️</text></g>
+          <g transform="translate(150 150)">
+            <rect class="wc-song" x="0" y="-14" width="5" height="28" rx="2.5" fill="#ffd76a"/>
+            <rect class="wc-song" x="9" y="-22" width="5" height="44" rx="2.5" fill="#7ee08a"/>
+            <rect class="wc-song" x="18" y="-10" width="5" height="20" rx="2.5" fill="#7cc4ff"/>
+            <rect class="wc-song" x="27" y="-18" width="5" height="36" rx="2.5" fill="#ffd76a"/>
+            <rect class="wc-song" x="36" y="-8" width="5" height="16" rx="2.5" fill="#7ee08a"/>
+          </g>
+        </svg>
+        <div class="wc-4" id="wc-4"></div>
         <h1 data-i18n-html="wc_td_2"></h1>
         <p class="wc-loi" data-i18n-html="wc_loi_2"></p>
-        <div class="wc-4" id="wc-4"></div>
-        <div class="wc-the" data-i18n-html="wc_sonif"></div>
       </div>
       <div class="wc-trang">
+        <!-- Sonification: màu bản đồ -> con số -> âm thanh -->
+        <div class="wc-sonif-dong">
+          <span><b class="bt">🗺️</b></span><i>➜</i>
+          <span><b class="bt">🔢</b></span><i>➜</i>
+          <span><b class="bt">🎵</b></span>
+        </div>
         <h1 data-i18n-html="wc_td_3"></h1>
         <p class="wc-loi" data-i18n-html="wc_loi_3"></p>
-        <p class="wc-loi"><b data-i18n="wc_hoi"></b></p>
+        <details class="wc-hop">
+          <summary data-i18n="wc_sonif_td"></summary>
+          <p class="wc-loi" data-i18n-html="wc_sonif"></p>
+        </details>
+        <p class="wc-cau-lon" data-i18n="wc_hoi"></p>
       </div>
     </div>
-    <div style="width:100%">
+    <div class="wc-chan">
       <div class="wc-cham" id="wc-cham"><i class="hien"></i><i></i><i></i></div>
-      <button class="nut nut-chinh" id="wc-tiep" type="button" style="max-width:none"></button>
+      <a class="wc-nut wc-nut-yt" id="wc-yt" href="https://www.youtube.com/watch?v=1eG5ywBjDiE&amp;feature=youtu.be" target="_blank" rel="noopener" data-i18n="wc_yt" hidden></a>
+      <div class="wc-hang">
+        <button class="wc-nut wc-nut-lui" id="wc-lui" type="button" hidden><span class="mui">←</span></button>
+        <button class="wc-nut wc-nut-chinh" id="wc-tiep" type="button"></button>
+      </div>
     </div>
   </section>
 
@@ -217,7 +339,7 @@
 
   <!-- KHÁM PHÁ -->
   <section class="man" id="man-kham-pha">
-    <button class="nut-goc trai" data-di="man-chao" type="button" data-i18n="ve"></button>
+    <button class="nut-goc phai" data-di="man-chao" type="button" data-i18n="ve"></button>
     <h2 data-i18n="kp_td"></h2>
     <p data-i18n="kp_hoi"></p>
     <div class="bo-the">
@@ -238,7 +360,7 @@
 
   <!-- BẢN ĐỒ -->
   <section class="man" id="man-ban-do">
-    <button class="nut-goc trai" data-di="man-kham-pha" type="button" data-i18n="ve"></button>
+    <button class="nut-goc phai" data-di="man-kham-pha" type="button" data-i18n="ve"></button>
     <h2 data-i18n="bd_td"></h2>
     <p class="nho" data-i18n="bd_hd"></p>
     <div class="khung-bd" id="bd-khung"><img id="bd-anh" alt=""></div>
@@ -248,7 +370,7 @@
 
   <!-- MỘT NƠI -->
   <section class="man" id="man-noi">
-    <button class="nut-goc trai" data-di="man-ban-do" type="button" data-i18n="ve"></button>
+    <button class="nut-goc phai" data-di="man-ban-do" type="button" data-i18n="ve"></button>
     <h2 id="noi-ten"></h2>
     <div class="ve-tinh"><span class="bay">🛰️</span> <span data-i18n="ve_tinh"></span></div>
     <canvas class="cat" id="noi-anh" width="220" height="220"></canvas>
@@ -266,7 +388,7 @@
 
   <!-- THEO THỜI GIAN -->
   <section class="man" id="man-thoi-gian">
-    <button class="nut-goc trai" data-di="man-kham-pha" type="button" data-i18n="ve"></button>
+    <button class="nut-goc phai" data-di="man-kham-pha" type="button" data-i18n="ve"></button>
     <h2 data-i18n="tg_td"></h2>
     <div class="ds-noi" id="tg-ds"></div>
     <div class="khung-bd" style="max-width:330px"><img id="tg-anh" alt=""><span class="ghim to" id="tg-ghim"></span></div>
@@ -283,7 +405,7 @@
 
   <!-- THEO CHẶNG -->
   <section class="man" id="man-chang">
-    <button class="nut-goc trai" data-di="man-kham-pha" type="button" data-i18n="ve"></button>
+    <button class="nut-goc phai" data-di="man-kham-pha" type="button" data-i18n="ve"></button>
     <h2 data-i18n="ch_td"></h2>
     <div class="ds-noi" id="ch-ds"></div>
     <p class="nho" data-i18n="ch_hd"></p>
@@ -295,7 +417,7 @@
 
   <!-- MINIGAME MENU -->
   <section class="man" id="man-minigame">
-    <button class="nut-goc trai" data-di="man-chao" type="button" data-i18n="ve"></button>
+    <button class="nut-goc phai" data-di="man-chao" type="button" data-i18n="ve"></button>
     <h2 data-i18n="mg_nut"></h2>
     <p data-i18n="mg_hoi"></p>
     <div class="bo-the" id="mg-ds"></div>
@@ -303,7 +425,7 @@
 
   <!-- GAME CHUNG -->
   <section class="man" id="man-game">
-    <button class="nut-goc trai" data-di="man-minigame" type="button" data-i18n="ve"></button>
+    <button class="nut-goc phai" data-di="man-minigame" type="button" data-i18n="ve"></button>
     <h2 id="g-td"></h2>
     <p id="g-hd" style="margin:2px 0 6px;max-width:330px"></p>
     <div class="nho" id="g-luot"></div>
@@ -315,7 +437,7 @@
   </section>
 
   <!-- HƯỚNG DẪN -->
-  <div class="noi-noi cao" id="noi-noi">
+  <div class="noi-noi" id="noi-noi">
     <button type="button" id="f-doc" aria-label="Đọc to">🔊</button>
     <button type="button" id="f-tieng" aria-label="Đổi ngôn ngữ">EN</button>
   </div>
@@ -335,15 +457,17 @@ try { lang = localStorage.getItem('gc_lang') || 'vi'; } catch(e) {}
 
 const CHU = {
  vi: {
-  bo_qua:'Bỏ qua', khong_giong:'Trình duyệt này chưa có giọng đọc tiếng Việt. Bạn thử mở app bằng Microsoft Edge, hoặc cài giọng tiếng Việt cho Windows nhé!', khong_doc:'Trình duyệt này chưa hỗ trợ đọc to.', tiep:'Tiếp ➜', vao:'Vào khám phá 🌍',
-  wc_nhan_1:'Câu chuyện của tụi mình', wc_td_1:'Mọi thứ bắt đầu từ <span class="noi">một góc xanh nhỏ</span> 🌱',
+  bo_qua:'Bỏ qua', khong_giong:'Trình duyệt này chưa có giọng đọc tiếng Việt. Bạn thử mở app bằng Microsoft Edge, hoặc cài giọng tiếng Việt cho Windows nhé!', khong_doc:'Trình duyệt này chưa hỗ trợ đọc to.', tiep:'Tiếp ➜', lui:'⬅ Quay lại', vao:'🌍 Bắt đầu hành trình', wc_yt:'🌱 Câu chuyện về góc xanh nhỏ',
+  wc_nhan_1:'Câu chuyện của tụi mình', wc_td_1:'<span class="noi">Một góc xanh nhỏ</span>',
   wc_loi_1:'Một bạn trong nhóm tự tay vun lên một góc xanh. Nhưng rồi tụi mình nhận ra: cây non cũng cần <b>không khí sạch</b> để thở. Vậy không khí trên cả Trái Đất đang thế nào?',
-  wc_nhan_2:'Dữ liệu NASA', wc_td_2:'Lắng nghe <span class="noi">hơi thở</span> của Trái Đất',
-  wc_loi_2:'Mùa hè 2024, mô hình <b>GEOS-CF</b> của NASA theo dõi 4 chất trong không khí trên toàn cầu:',
-  wc_sonif:'🎼 Đây là <b>sonification</b>: âm thanh <b>không phải</b> tiếng thu từ bầu trời, mà là <b>màu sắc trên bản đồ NASA được dịch thành âm thanh</b>.',
-  wc_nhan_3:'Hành trình của bạn', wc_td_3:'Sẵn sàng <span class="noi">lắng nghe</span> chưa?',
-  wc_loi_3:'Có nơi đầy khói cháy rừng, có nơi tấp nập xe cộ, có nơi trong lành. Hãy nghe thật kỹ, và yêu Trái Đất thêm một chút nhé. 💚',
-  wc_hoi:'Đôi tai của bạn có nghe ra điều mà đôi mắt bỏ lỡ?',
+  wc_nhan_2:'Dữ liệu NASA', wc_td_2:'<span class="noi">Nhịp thở</span> của Trái Đất',
+  wc_loi_2:'Mùa hè 2024, mô hình <b>GEOS-CF</b> của NASA theo dõi 4 chất trong không khí trên toàn cầu: bụi mịn, ozone, khí CO và khí NOₓ.',
+  wc_sonif:'Đây là <b>sonification</b>: màu trên bản đồ NASA được đổi thành con số, rồi thành âm thanh. Âm thanh <b>không phải</b> tiếng thu từ bầu trời.',
+  wc_sonif_td:'Sonification là gì? 🎼', wc_s1:'Màu bản đồ', wc_s2:'Con số', wc_s3:'Âm thanh',
+  wc_nhan_3:'Hành trình của bạn', wc_td_3:'Sẵn sàng <span class="noi">lắng nghe</span>',
+  wc_loi_3:'Mỗi nốt nhạc là một khu rừng đang thở, một cơn mưa đang rơi. Hãy lắng nghe thật kỹ, và yêu Trái Đất thêm một chút nhé. 💚',
+  wc_buoc:[['🎧','Lắng nghe'],['💭','Tưởng tượng'],['🤔','Dự đoán'],['🛰️','NASA bật mí']],
+  wc_hoi:'Đôi tai của bạn có khám phá được điều mà đôi mắt có thể bỏ lỡ?',
   chao:'🌱 Chào bạn! Mình là <b>Mầm Xanh</b>. Cùng mình nghe xem bầu trời ở khắp nơi đang thở thế nào nhé!',
   khau_hieu:'Từ một góc xanh nhỏ, lắng nghe bầu trời của cả Trái Đất',
   bat_dau:'Bắt đầu khám phá', mg_nut:'🎮 Minigame', xem_lai:'📖 Xem lại câu chuyện', ve:'⬅ Về', ve_du_lieu:'ℹ️ Về dữ liệu', nt_td:'🎧 Nghe thử 4 âm thanh', nt_hd:'Chạm vào một thẻ: nghe lúc ÍT, rồi lúc NHIỀU.', it:'Ít…', nhieu:'Nhiều!',
@@ -399,14 +523,16 @@ const CHU = {
   gt_luu_y:'⚠️ Đây là so sánh giữa các nơi, đọc từ màu bản đồ NASA. Đây không phải chỉ số chất lượng không khí (AQI) đo thật, nên không dùng để kết luận an toàn cho sức khỏe hay không.',
  },
  en: {
-  bo_qua:'Skip', khong_giong:'This device has no English voice installed.', khong_doc:'This browser cannot read aloud.', tiep:'Next ➜', vao:'Start exploring 🌍',
-  wc_nhan_1:'Our story', wc_td_1:'It all started with <span class="noi">one small Green Corner</span> 🌱',
+  bo_qua:'Skip', khong_giong:'This device has no English voice installed.', khong_doc:'This browser cannot read aloud.', tiep:'Next ➜', lui:'⬅ Back', vao:'🌍 Start the journey', wc_yt:'🌱 The story of a little green corner',
+  wc_nhan_1:'Our story', wc_td_1:'<span class="noi">One small Green Corner</span>',
   wc_loi_1:'One of our teammates grew a little green space by hand. Then we realised: young plants need <b>clean air</b> to breathe too. So how is the air across the whole Earth?',
-  wc_nhan_2:'NASA data', wc_td_2:'Listen to Earth <span class="noi">breathing</span>',
-  wc_loi_2:'In summer 2024, NASA\'s <b>GEOS-CF</b> model tracked 4 things in the air all over the globe:',
-  wc_sonif:'🎼 This is <b>sonification</b>: the sounds are <b>not</b> recordings of the sky. They are <b>the colours of a NASA map, translated into sound</b>.',
-  wc_nhan_3:'Your journey', wc_td_3:'Ready to <span class="noi">listen</span>?',
-  wc_loi_3:'Some places are full of wildfire smoke, some are busy with traffic, some are fresh and clean. Listen closely, and love our planet a little more. 💚',
+  wc_nhan_2:'NASA data', wc_td_2:'The <span class="noi">breath</span> of the Earth',
+  wc_loi_2:'In summer 2024, NASA\'s <b>GEOS-CF</b> model tracked 4 things in the air all over the globe: fine dust, ozone, CO and NOₓ.',
+  wc_sonif:'This is <b>sonification</b>: colours on the NASA map become numbers, then sound. The sounds are <b>not</b> recordings of the sky.',
+  wc_sonif_td:'What is sonification? 🎼', wc_s1:'Map colour', wc_s2:'Numbers', wc_s3:'Sound',
+  wc_nhan_3:'Your journey', wc_td_3:'Ready to <span class="noi">listen</span>',
+  wc_loi_3:'Every note is a forest breathing, a raindrop falling. Listen closely, and fall a little more in love with our planet. 💚',
+  wc_buoc:[['🎧','Listen'],['💭','Imagine'],['🤔','Predict'],['🛰️','NASA Reveal']],
   wc_hoi:'Can your ears discover something your eyes might miss?',
   chao:'🌱 Hi! I\'m <b>Sprout</b>. Let\'s listen to how the sky is breathing all around the world!',
   khau_hieu:'From one small green corner, listen to the sky of the whole Earth',
@@ -597,7 +723,6 @@ const xy = (lat, lon) => ({ x:(lon+180)*3, y:(90-lat)*3 });
 // ---------- ĐIỀU HƯỚNG ----------
 function di(id) {
   dungAm(); dungDoc();
-  $('noi-noi').classList.toggle('cao', id === 'man-welcome');
   document.querySelectorAll('.man').forEach(m => m.classList.toggle('hien', m.id === id));
   const m = $(id); m.scrollTop = 0;
   if (VAO[id]) VAO[id]();
@@ -611,9 +736,17 @@ function veWelcome() {
   document.querySelectorAll('.wc-trang').forEach((p,i)=>p.classList.toggle('hien', i===wcTrang));
   document.querySelectorAll('#wc-cham i').forEach((p,i)=>p.classList.toggle('hien', i===wcTrang));
   $('wc-tiep').textContent = wcTrang < 2 ? t('tiep') : t('vao');
+  $('wc-lui').hidden = wcTrang === 0; $('wc-lui').title = $('wc-lui').ariaLabel = t('lui');
+  $('wc-yt').hidden = wcTrang !== 0;   // nút video chỉ hiện ở intro 1
+  $('wc-bo-qua').style.visibility = wcTrang < 2 ? 'visible' : 'hidden';
 }
+// rắc sao lên trời
+(() => { const troi = $('wc-bau-troi'); for (let k=0;k<60;k++) { const s = document.createElement('i');
+  s.style.left = Math.random()*100+'%'; s.style.top = Math.random()*75+'%'; s.style.animationDelay = (Math.random()*3).toFixed(2)+'s';
+  s.style.width = s.style.height = (Math.random() < .15 ? 3 : 2)+'px'; troi.appendChild(s); } })();
 $('wc-tiep').onclick = () => { if (wcTrang < 2) { wcTrang++; veWelcome(); } else di('man-chao'); };
 $('wc-bo-qua').onclick = () => di('man-chao');
+$('wc-lui').onclick = () => { if (wcTrang > 0) { wcTrang--; veWelcome(); } };
 $('nut-cau-chuyen').onclick = () => { wcTrang = 0; veWelcome(); di('man-welcome'); };
 
 // ---------- BẢN ĐỒ ----------
@@ -962,7 +1095,7 @@ function apDung() {
   $('dl-the').innerHTML = t('du_lieu').map(([b,x]) => `<div class="the-tt"><span class="bt">${b}</span><span>${x}</span></div>`).join('')
     + `<div class="the-tt"><span class="bt">📡</span><span><b>${t('nguon_td').replace(/^\S+\s/,'')}</b><ul class="nguon-ds"></ul></span></div>`;
   veOAm();
-  $('wc-4').innerHTML = CHAT.map(c=>`<div><b>${ICON[c]}</b>${tenChat(c)}</div>`).join('');
+  $('wc-4').innerHTML = CHAT.map(c=>`<div class="wc-c wc-c-${c}"><b>${ICON[c]}</b><span>${tenChat(c)}</span></div>`).join('');
   const nguonHtml = [
     `<li>NASA SVS 5533 – Air Quality Model Runs: <a href="https://svs.gsfc.nasa.gov/5533/" target="_blank" rel="noopener">svs.gsfc.nasa.gov/5533</a></li>`,
     `<li>GEOS-CF (NASA GMAO), 1/7–14/9/2024: <a href="https://portal.nccs.nasa.gov/datashare/gmao/geos-cf/v2/" target="_blank" rel="noopener">portal.nccs.nasa.gov/datashare/gmao/geos-cf/v2</a></li>`,
@@ -995,7 +1128,7 @@ function sachChu(s) {
 function cacDoan() {
   const man = document.querySelector('.man.hien');
   const goc = man.id === 'man-welcome' ? man.querySelector('.wc-trang.hien') : man;
-  const chon = 'h1, h2, h3, p, .loi-mam, .wc-the, .wc-4 div, .ve-tinh, .cac-so li, .giai-thich, .ket-qua, .the .ten, .o-am-the, .xep li, .the-tt, .nhan-anh';
+  const chon = '.wc-nhan, h1, h2, h3, .wc-sonif-dong, .wc-hop summary, p, .loi-mam, .wc-the, .wc-buoc, .wc-c, .ve-tinh, .cac-so li, .giai-thich, .ket-qua, .the .ten, .o-am-the, .xep li, .the-tt, .nhan-anh';
   return [...goc.querySelectorAll(chon)].filter(el => el.offsetParent !== null && !el.closest('.ds-noi') && !el.parentElement.closest(chon) && sachChu(el.innerText).length > 1);
 }
 function boDanhDau() { document.querySelectorAll('.dang-doc').forEach(e => e.classList.remove('dang-doc')); }
