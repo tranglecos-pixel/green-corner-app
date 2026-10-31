@@ -468,6 +468,18 @@
   #man-game .ket-qua { margin:16px 0 4px; }
   #man-game #g-tiep, #man-game #g-lai { margin-top:10px; }
   #man-game #g-nguon { margin-top:18px; }
+  /* Vẽ bầu trời: 4 ô cắt từ bản đồ NASA sau khi chốt */
+  #man-game .g5-nasa { width:100%; max-width:340px; background:rgba(255,255,255,.85); border-radius:18px; padding:10px; text-align:center; }
+  #man-game .g5-nasa > b { color:var(--vien); font-size:.92rem; }
+  #man-game .g5-nasa .nho { margin:8px 0 0; font-size:.74rem; line-height:1.4; }
+  #man-game .g5-cat { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-top:8px; }
+  #man-game .g5-cat-o { display:flex; flex-direction:column; align-items:center; gap:2px; font-size:.7rem; font-weight:800; color:var(--m); }
+  #man-game .g5-cat-o small { font-size:.62rem; color:var(--nhat); font-weight:700; }
+  #man-game .g5-cat-o .ic-bui { width:14px; height:14px; vertical-align:-3px; }
+  #man-game .g5-cat-khung { position:relative; width:100%; aspect-ratio:1; border-radius:12px; overflow:hidden; border:3px solid var(--m); }
+  #man-game .g5-cat-khung canvas { width:100%; height:100%; display:block; }
+  #man-game .g5-cat-khung i { position:absolute; left:50%; top:50%; width:16px; height:16px; margin:-8px 0 0 -8px; border-radius:50%; border:2.5px solid #fff; box-shadow:0 0 0 1.5px rgba(0,0,0,.6); }
+  #man-game .g5-cat-trong { width:100%; aspect-ratio:1; border-radius:12px; background:#eef3ef; display:grid; place-items:center; color:var(--nhat); }
   /* Đội tuần tra: 4 ghim trên bản đồ */
   #man-game .g6-bd { max-width:350px; overflow:visible; }
   #man-game .g6-bd img { border-radius:11px; }
@@ -916,7 +928,7 @@ const CHU = {
   g2:'🛰️ Dải màu bí ẩn', g2_mo:'Mảnh bản đồ NASA này là chất gì?', g2_hd:'Đây là một mảnh bản đồ NASA. Màu này là của chất nào?',
   g3:'📈 Ai thay đổi nhiều nhất?', g3_mo:'So 2 nơi qua 10 chặng mùa hè', g3_hd:'Nghe {c} của 2 nơi qua 10 chặng, mỗi chặng 1 nốt. Nốt lên là tăng, xuống là giảm. Nơi nào thay đổi nhiều hơn?',
   g4:'🎵 Đoán chất', g4_mo:'Tiếng này là của chất nào?', g4_hd:'Nghe một âm thanh, rồi đoán nó là của chất nào trong không khí!', nghe_tieng:'🎧 Nghe tiếng',
-  g5:'🎨 Vẽ bầu trời dự đoán', g5_mo:'Đoán bầu trời có ít hay nhiều chất', g5_hd:'Bầu trời ở {noi} mùa hè 2024 có ít hay nhiều từng chất? Chọn một bầu trời cho mỗi chất rồi bấm Chốt!', g5_kq:'Bạn đoán đúng {d}/4 chất!', g5_it:'Ít', g5_vua:'Vừa', g5_nhieu:'Nhiều', g5_gt:'{c} ở {noi} là {v}/100, đứng thứ {h} trong 32 nơi, tức là mức <b>{muc}</b>. {y}', chot:'🔒 Chốt & xem NASA', ban_doan:'🎨 Bạn dự đoán', nasa_thay:'🛰️ NASA mô phỏng',
+  g5:'🎨 Vẽ bầu trời dự đoán', g5_mo:'Đoán bầu trời có ít hay nhiều chất', g5_hd:'Bầu trời ở {noi} mùa hè 2024 có ít hay nhiều từng chất? Chọn một bầu trời cho mỗi chất rồi bấm Chốt!', g5_kq:'Bạn đoán đúng {d}/4 chất!', g5_nasa_td:'🛰️ Bản đồ NASA quanh {noi}', g5_nasa_nho:'Mỗi ô cắt từ một khoảnh khắc trong mùa hè 2024, lúc dải màu của chất đó đi qua thành phố (vòng tròn là vị trí thành phố). Màu của một khoảnh khắc có thể khác mức trung bình cả mùa.', g5_it:'Ít', g5_vua:'Vừa', g5_nhieu:'Nhiều', g5_gt:'{c} ở {noi} là {v}/100, đứng thứ {h} trong 32 nơi, tức là mức <b>{muc}</b>. {y}', chot:'🔒 Chốt & xem NASA', ban_doan:'🎨 Bạn dự đoán', nasa_thay:'🛰️ NASA mô phỏng',
   g7:'🎼 Tai nào ồn hơn?', g7_mo:'Song ca hai thành phố bí mật', g7_hd:'Mỗi tai là một thành phố bí mật. Tai nào có nhiều {c} hơn?', g7_hd4:'Mỗi tai là một thành phố bí mật. Cộng cả 4 chất, tai nào “ồn” hơn?', g7_2tai:'🎧 Nghe hai tai', g7_lan:'🔁 Nghe lần lượt',
   g6:'🚨 Đội Tuần Tra Không Khí', g6_mo:'Xếp 4 nơi trên bản đồ từ ít đến nhiều', g6_hd:'Chạm lần lượt 4 ghim trên bản đồ, từ nơi bạn nghĩ có ÍT {c} nhất đến NHIỀU nhất.', g6_gt:'NASA xếp 4 nơi từ ít đến nhiều {c} trong cả mùa hè 2024:', xem_xep:'🛰️ Xem NASA xếp hạng', chon_lai:'🔄 Chọn lại', dung_vi_tri:'Bạn xếp đúng {d}/4 vị trí.',
   vung_a:'Châu Á', vung_au:'Châu Âu & Phi', vung_my:'Châu Mỹ',
@@ -1022,7 +1034,7 @@ const CHU = {
   g2:'🛰️ Mystery colour', g2_mo:'Which gas is this NASA map piece?', g2_hd:'This is a piece of the NASA map. Which gas does this colour show?',
   g3:'📈 Who changed most?', g3_mo:'Compare 2 places over 10 stages', g3_hd:'Hear {c} at 2 places over 10 stages, one note per stage. Up means rising, down means falling. Which place changed more?',
   g4:'🎵 Guess the gas', g4_mo:'Which gas makes this sound?', g4_hd:'Listen to a sound, then guess which gas in the air it stands for!', nghe_tieng:'🎧 Hear the sound',
-  g5:'🎨 Draw the sky', g5_mo:'Guess a little or a lot of each gas', g5_hd:'Did the sky over {noi} have a little or a lot of each gas in summer 2024? Pick a sky for each gas, then lock in!', g5_kq:'You got {d}/4 gases right!', g5_it:'A little', g5_vua:'Some', g5_nhieu:'A lot', g5_gt:'{c} in {noi} was {v}/100, ranked {h} of 32 places, so its level is <b>{muc}</b>. {y}', chot:'🔒 Lock in & see NASA', ban_doan:'🎨 Your guess', nasa_thay:'🛰️ NASA model',
+  g5:'🎨 Draw the sky', g5_mo:'Guess a little or a lot of each gas', g5_hd:'Did the sky over {noi} have a little or a lot of each gas in summer 2024? Pick a sky for each gas, then lock in!', g5_kq:'You got {d}/4 gases right!', g5_nasa_td:'🛰️ NASA map around {noi}', g5_nasa_nho:'Each square is cut from one moment in summer 2024, when that gas band crossed the city (the ring marks the city). The colour at one moment can differ from the summer average.', g5_it:'A little', g5_vua:'Some', g5_nhieu:'A lot', g5_gt:'{c} in {noi} was {v}/100, ranked {h} of 32 places, so its level is <b>{muc}</b>. {y}', chot:'🔒 Lock in & see NASA', ban_doan:'🎨 Your guess', nasa_thay:'🛰️ NASA model',
   g7:'🎼 Which ear is noisier?', g7_mo:'A duet of two secret cities', g7_hd:'Each ear is a secret city. Which ear has more {c}?', g7_hd4:'Each ear is a secret city. Adding all 4 gases, which ear is “noisier”?', g7_2tai:'🎧 Both ears', g7_lan:'🔁 One by one',
   g6:'🚨 Air Patrol', g6_mo:'Rank 4 places on the map, least to most', g6_hd:'Tap the 4 pins on the map in order, from the place you think has the LEAST {c} to the MOST.', g6_gt:'NASA ranks the 4 places from least to most {c} over summer 2024:', xem_xep:'🛰️ See NASA ranking', chon_lai:'🔄 Reset', dung_vi_tri:'You got {d}/4 positions right.',
   vung_a:'Asia', vung_au:'Europe & Africa', vung_my:'Americas',
@@ -1793,6 +1805,31 @@ function themGiaiThichGame(id, html) {
   hop.innerHTML = `<summary>${t('gt_td')}</summary><div class="giai-thich" id="${id}">${html}</div>`;
   $('g-kq').after(hop);
 }
+// Sau khi chốt: 4 ô cắt từ bản đồ NASA quanh thành phố, mỗi ô lấy ở khung có dải màu của chất đó đi qua
+function khungCuaChat(n, c) {
+  const x = (NOI[n].lon + 180) * 3; let tot = null;
+  ANH.forEach((a, k) => {
+    const off = ((x - a.nox) % 540 + 540) % 540, j = Math.floor(off / 135), r = off % 135;
+    if (SAU_NOX[j] === c && r > 6 && r < 129 && (!tot || Math.abs(r - 67) < tot.lech)) tot = { k, lech: Math.abs(r - 67) };
+  });
+  return tot ? tot.k : null;
+}
+function g5BanDo(n) {
+  const hop = document.createElement('div'); hop.className = 'g5-nasa';
+  hop.innerHTML = `<b>${t('g5_nasa_td', { noi: tenNoi(n) })}</b><div class="g5-cat"></div><p class="nho">${t('g5_nasa_nho')}</p>`;
+  const p = xy(NOI[n].lat, NOI[n].lon);
+  for (const c of CHAT) {
+    const k = khungCuaChat(n, c), o = document.createElement('div'); o.className = 'g5-cat-o'; o.style.setProperty('--m', MAU[c]);
+    if (k === null) { o.innerHTML = `<div class="g5-cat-trong">–</div><span>${ICON[c]} ${t('ten_ngan')[c]}</span>`; }
+    else {
+      const chang = Math.min(10, Math.floor(ANH[k].khung / (D.tong_khung / 10)) + 1);   // khung video -> chặng 1..10
+      o.innerHTML = `<div class="g5-cat-khung"><canvas width="120" height="120"></canvas><i></i></div><span>${ICON[c]} ${t('ten_ngan')[c]}</span><small>${t('chang_k', { k: chang })}</small>`;
+      veCat(o.querySelector('canvas'), k, p.x, p.y, 70);
+    }
+    hop.querySelector('.g5-cat').appendChild(o);
+  }
+  return hop;
+}
 // mỗi lượt: 1 thành phố, đoán Ít / Vừa / Nhiều cho cả 4 chất rồi chốt; 3 lượt, tối đa 12 điểm
 function luotG5() {
   G.soLuot = 3; G.toiDa = 12;
@@ -1823,6 +1860,7 @@ function luotG5() {
     }
     G.diem += dung;
     $('g-kq').innerHTML = t('g5_kq', { d: dung });
+    than.insertBefore(g5BanDo(n), chot);
     themGiaiThichGame('g5-gt', giaiThich(n, o.tb, 'tb', { khongTieuDe: true, hang: true }));
     phatCa4(o.tb, 4);
     ketThucLuot();
