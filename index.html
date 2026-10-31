@@ -441,6 +441,11 @@
   .tg-doan-o i { height:8px; border-radius:4px; background:rgba(30,107,47,.14); overflow:hidden; }
   .tg-doan-o i b { display:block; height:100%; width:0; background:var(--mau-nut); border-radius:4px; }
   .tg-the .tg-doan input[type=range] { position:absolute; inset:0; width:100%; height:100%; margin:0; opacity:0; cursor:pointer; }
+  #tg-gt .mx-td { display:block; color:var(--vien); font-size:.95rem; margin:12px 0 4px; }
+  #tg-gt .mx-td:first-child { margin-top:0; }
+  #tg-gt p { margin:0 0 4px; }
+  #tg-gt .mx-hang { font-size:.86rem; line-height:1.6; background:#f4faf5; border-radius:12px; padding:6px 10px; margin:6px 0; }
+  #tg-gt .mx-hang i { color:var(--nhat); font-style:normal; }
   /* ===== Bàn trộn Jukebox + Song ca ===== */
   .tg-nhan:empty { display:none; }
   .tg-phat-to.dung::before { border:none; width:20px; height:22px; margin:0; border-left:7px solid currentColor; border-right:7px solid currentColor; }
@@ -832,9 +837,9 @@ const CHU = {
   wc_hoi:'Đôi tai của bạn có khám phá được điều mà đôi mắt có thể bỏ lỡ?',
   chao:'🌱 Chào bạn! Mình là <b>Mầm Xanh</b>. Cùng mình nghe xem bầu trời ở khắp nơi đang thở thế nào nhé!',
   khau_hieu:'Từ một góc xanh nhỏ, lắng nghe bầu trời của cả Trái Đất',
-  bat_dau:'Bắt đầu khám phá', mg_nut:'🎮 Minigame', xem_lai:'📖 Câu chuyện Green Corner', tc_1:'Câu chuyện Green Corner', tc_1m:'Góc xanh nhỏ & 4 âm thanh', tc_2:'🎵 Jukebox hành trình mùa hè', tc_2m:'Nghe không khí 32 thành phố thay đổi suốt mùa hè', tc_3:'🎮 Minigame', tc_3m:'7 trò chơi bằng đôi tai', ve:'⬅ Về', ve_du_lieu:'ℹ️ Về dữ liệu', nt_td:'🎧 Nghe thử 4 âm thanh', wc_td_4:'Nghe thử <span class="noi">4 âm thanh</span> 🎧', nt_hd:'Mỗi chất có một giọng riêng. Chạm vào từng bạn nhỏ để nghe lúc ÍT, rồi lúc NHIỀU nhé!', nt_hop:'🌱 Mầm Xanh giải thích', it:'Ít…', nhieu:'Nhiều!',
+  bat_dau:'Bắt đầu khám phá', mg_nut:'🎮 Minigame', xem_lai:'📖 Câu chuyện Green Corner', tc_1:'Câu chuyện Green Corner', tc_1m:'Góc xanh nhỏ & 4 âm thanh', tc_2:'🎵 Jukebox Hành trình mùa hè', tc_2m:'Nghe không khí 32 thành phố thay đổi suốt mùa hè', tc_3:'🎮 Minigame', tc_3m:'7 trò chơi bằng đôi tai', ve:'⬅ Về', ve_du_lieu:'ℹ️ Về dữ liệu', nt_td:'🎧 Nghe thử 4 âm thanh', wc_td_4:'Nghe thử <span class="noi">4 âm thanh</span> 🎧', nt_hd:'Mỗi chất có một giọng riêng. Chạm vào từng bạn nhỏ để nghe lúc ÍT, rồi lúc NHIỀU nhé!', nt_hop:'🌱 Mầm Xanh giải thích', it:'Ít…', nhieu:'Nhiều!',
   kp_td:'🌍 Khám phá', kp_hoi:'Bạn muốn khám phá theo cách nào?',
-  kp_tg:'Jukebox hành trình mùa hè', kp_tg_mo:'Nghe không khí thay đổi suốt mùa hè 2024, tắt bật từng bè nhạc',
+  kp_tg:'Jukebox Hành trình mùa hè', kp_tg_mo:'Nghe không khí thay đổi suốt mùa hè 2024, tắt bật từng bè nhạc',
   kp_sc:'Song ca hai thành phố', kp_sc_mo:'Tai trái một nơi, tai phải một nơi: nơi nào “ồn” hơn?',
   sc_td:'🎧 Song ca hai thành phố', sc_hd:'Chọn hai nơi A và B, rồi bấm ▶ để nghe bản nhạc của hai nơi cùng lúc hoặc lần lượt.', tg_hd:'Bấm ▶ hoặc kéo thanh trượt để nghe không khí thay đổi suốt mùa hè.',
   sc_a:'🅰️ Tai trái', sc_b:'🅱️ Tai phải', sc_2tai:'🎧 Hai tai cùng lúc', sc_lan:'🔁 Lần lượt',
@@ -855,7 +860,7 @@ const CHU = {
   ns_3:'<b>Green Corner – “đôi tai” nghe bức tranh.</b> App đọc màu trên video SVS 5533 tại từng thành phố, đổi thành số 0–100 rồi thành âm thanh. Vì đọc từ màu nên số chỉ để so sánh các nơi, không phải số đo thật.',
   ns_nguon:'Nguồn tham khảo',
   muc:'Mức', thap:'thấp', vua_muc:'vừa', cao:'cao', so_voi:'so với 32 thành phố',
-  tg_td:'🎵 Jukebox hành trình mùa hè', tg_goi_y:'Chọn thành phố (vuốt ngang để xem thêm)', uoc_luong:'ước lượng', phat:'▶ Phát', tam_dung:'⏸ Dừng', nhanh:'Nhanh', vua:'Vừa', cham:'Chậm',
+  tg_td:'🎵 Jukebox Hành trình mùa hè', tg_goi_y:'Chọn thành phố (vuốt ngang để xem thêm)', uoc_luong:'ước lượng', phat:'▶ Phát', tam_dung:'⏸ Dừng', nhanh:'Nhanh', vua:'Vừa', cham:'Chậm',
   dau_mua:'Đầu mùa hè', cuoi_mua:'Cuối mùa hè', moc:'Mốc {i}/300',
   tg_chu:'Chấm nhạt = mốc NASA không có dải chất đó đi qua thành phố, app ước lượng từ mốc gần nhất. Số 0–100 là mức tương đối đọc từ màu, không phải nồng độ đo thật.',
   ch_td:'🧭 Theo chặng', chang_k:'Chặng {k}/10', ch_hd:'Chạm vào một chặng để nghe. Chặng 1 là đầu mùa hè 2024, chặng 10 là cuối mùa.',
@@ -904,6 +909,13 @@ const CHU = {
   ms_pha:['đầu mùa','giữa mùa','cuối mùa'],
   ms_noi_bat_tang:'Tăng nhiều nhất là {c}, lên cao nhất ở chặng {k} ({pha}). {y}',
   ms_noi_bat_giam:'Giảm nhiều nhất là {c}: cao nhất ở chặng {k} ({pha}) rồi bớt dần. {y}',
+  mx_ss_td:'🌍 So với 32 thành phố', mx_ss:'Trong cả mùa hè 2024, không khí ở {noi} {tong}', mx_hang:'Xếp hạng (#1 = nhiều nhất):', mx_noi_bat:'Nổi bật nhất là {c}, đứng thứ {h} trong 32 nơi. {y}',
+  mx_doi_td:'📈 Cả mùa hè thay đổi thế nào?', mx_tang:'Tăng: {ds}.', mx_giam:'Giảm: {ds}.', mx_deu:'Gần như không đổi: {ds}.',
+  mx_dinh_td:'⛰️ Lúc cao nhất, lúc thấp nhất', mx_dao:'{c} lên xuống nhiều nhất: thấp nhất {min} ở chặng {kmin} ({pmin}), cao nhất {max} ở chặng {kmax} ({pmax}).', mx_on:'Ổn định nhất là {c}, chỉ đổi trong khoảng {min}–{max}.',
+  mx_nghe_td:'🎧 Khi nghe Jukebox', mx_nghe_to:'Bè {c} đáng chú ý nhất, vì so với các thành phố khác, đây là chất nơi này có nhiều nhất.', mx_nghe_doi:'Hãy để ý {c}: về cuối mùa {am}.', mx_nghe_deu:'Bản nhạc khá đều từ đầu đến cuối, vì không chất nào thay đổi nhiều.',
+  mx_am_tang: { PM25:'tiếng gió to và rít hơn', O3:'tiếng chuông lên cao hơn', CO:'mộc cầm nhiều nốt hơn', NOx:'tiếng trống dồn dập hơn' },
+  mx_am_giam: { PM25:'tiếng gió nhỏ lại', O3:'tiếng chuông trầm xuống', CO:'mộc cầm thưa nốt hơn', NOx:'tiếng trống thưa dần' },
+  mx_tin_td:'🔍 Số liệu chắc chắn đến đâu?', mx_tin:'Phần trăm số mốc phải ước lượng (≈) vì dải màu của chất đó không đi qua thành phố: {ds}. Càng nhiều ≈ thì đường thay đổi càng kém chắc chắn.',
   ms_on_dinh:'Cả 4 chất khá ổn định suốt mùa hè, không có lúc nào tăng vọt.',
   ms_ket_xau:'Nhìn chung, về cuối mùa không khí ở đây có nhiều chất hơn đầu mùa.',
   ms_ket_tot:'Nhìn chung, về cuối mùa không khí ở đây trong lành hơn đầu mùa.',
@@ -924,9 +936,9 @@ const CHU = {
   wc_hoi:'Can your ears discover something your eyes might miss?',
   chao:'🌱 Hi! I\'m <b>Sprout</b>. Let\'s listen to how the sky is breathing all around the world!',
   khau_hieu:'From one small green corner, listen to the sky of the whole Earth',
-  bat_dau:'Start exploring', mg_nut:'🎮 Mini-games', xem_lai:'📖 The Green Corner story', tc_1:'The Green Corner story', tc_1m:'A little green corner & 4 sounds', tc_2:'🎵 Summer journey Jukebox', tc_2m:'Hear the air of 32 cities change all summer', tc_3:'🎮 Mini-games', tc_3m:'7 games for your ears', ve:'⬅ Back', ve_du_lieu:'ℹ️ About the data', nt_td:'🎧 Try the 4 sounds', wc_td_4:'Try the <span class="noi">4 sounds</span> 🎧', nt_hd:'Each gas has its own voice. Tap each little friend to hear A LITTLE, then A LOT!', nt_hop:'🌱 Sprout explains', it:'A little…', nhieu:'A lot!',
+  bat_dau:'Start exploring', mg_nut:'🎮 Mini-games', xem_lai:'📖 The Green Corner story', tc_1:'The Green Corner story', tc_1m:'A little green corner & 4 sounds', tc_2:'🎵 Summer Journey Jukebox', tc_2m:'Hear the air of 32 cities change all summer', tc_3:'🎮 Mini-games', tc_3m:'7 games for your ears', ve:'⬅ Back', ve_du_lieu:'ℹ️ About the data', nt_td:'🎧 Try the 4 sounds', wc_td_4:'Try the <span class="noi">4 sounds</span> 🎧', nt_hd:'Each gas has its own voice. Tap each little friend to hear A LITTLE, then A LOT!', nt_hop:'🌱 Sprout explains', it:'A little…', nhieu:'A lot!',
   kp_td:'🌍 Explore', kp_hoi:'How would you like to explore?',
-  kp_tg:'Summer journey Jukebox', kp_tg_mo:'Hear the air change through summer 2024, mute and solo each track',
+  kp_tg:'Summer Journey Jukebox', kp_tg_mo:'Hear the air change through summer 2024, mute and solo each track',
   kp_sc:'City duet', kp_sc_mo:'One city in each ear: which one is “noisier”?',
   sc_td:'🎧 City duet', sc_hd:'Pick two places, A and B, then tap ▶ to hear their songs together or one by one.', tg_hd:'Tap ▶ or drag the slider to hear the air change through the summer.',
   sc_a:'🅰️ Left ear', sc_b:'🅱️ Right ear', sc_2tai:'🎧 Both ears', sc_lan:'🔁 One by one',
@@ -947,7 +959,7 @@ const CHU = {
   ns_3:'<b>Green Corner – the “ears” that listen to the picture.</b> The app reads the colours of the SVS 5533 video at each city, turns them into 0–100 numbers and then into sound. Because it reads colours, the numbers are for comparing places, not real measurements.',
   ns_nguon:'References',
   muc:'Level', thap:'low', vua_muc:'medium', cao:'high', so_voi:'compared with 32 cities',
-  tg_td:'🎵 Summer journey Jukebox', tg_goi_y:'Pick a city (swipe sideways for more)', uoc_luong:'estimate', phat:'▶ Play', tam_dung:'⏸ Pause', nhanh:'Fast', vua:'Medium', cham:'Slow',
+  tg_td:'🎵 Summer Journey Jukebox', tg_goi_y:'Pick a city (swipe sideways for more)', uoc_luong:'estimate', phat:'▶ Play', tam_dung:'⏸ Pause', nhanh:'Fast', vua:'Medium', cham:'Slow',
   dau_mua:'Early summer', cuoi_mua:'Late summer', moc:'Step {i}/300',
   tg_chu:'Faded dots = steps where that band did not cross the city; the app estimates them from the nearest steps. 0–100 is a relative level read from colour, not a measured concentration.',
   ch_td:'🧭 By stage', ch_hd:'Tap a stage to listen. Stage 1 is early summer 2024, stage 10 is late summer.',
@@ -996,6 +1008,13 @@ const CHU = {
   ms_pha:['early summer','mid-summer','late summer'],
   ms_noi_bat_tang:'The biggest rise was {c}, which peaked in stage {k} ({pha}). {y}',
   ms_noi_bat_giam:'The biggest drop was {c}: it was highest in stage {k} ({pha}) and then eased off. {y}',
+  mx_ss_td:'🌍 Compared with 32 cities', mx_ss:'Over summer 2024, the air in {noi} {tong}', mx_hang:'Ranking (#1 = the most):', mx_noi_bat:'It stands out most for {c}, ranked {h} of 32 places. {y}',
+  mx_doi_td:'📈 How did summer change?', mx_tang:'Rose: {ds}.', mx_giam:'Fell: {ds}.', mx_deu:'About the same: {ds}.',
+  mx_dinh_td:'⛰️ Highest and lowest', mx_dao:'{c} went up and down the most: lowest {min} in stage {kmin} ({pmin}), highest {max} in stage {kmax} ({pmax}).', mx_on:'The steadiest was {c}, only moving between {min} and {max}.',
+  mx_nghe_td:'🎧 Listening in the Jukebox', mx_nghe_to:'The {c} track matters most, because compared with other cities this is the gas this place has the most of.', mx_nghe_doi:'Listen for {c}: towards late summer {am}.', mx_nghe_deu:'The music stays fairly even from start to end, because no gas changed much.',
+  mx_am_tang: { PM25:'the wind gets louder and sharper', O3:'the bell climbs higher', CO:'the marimba plays more notes', NOx:'the drums get busier' },
+  mx_am_giam: { PM25:'the wind gets softer', O3:'the bell drops lower', CO:'the marimba plays fewer notes', NOx:'the drums slow down' },
+  mx_tin_td:'🔍 How sure is the data?', mx_tin:'Share of steps that had to be estimated (≈) because that gas band did not cross the city: {ds}. The more ≈, the less certain the line.',
   ms_on_dinh:'All 4 gases stayed fairly steady all summer, with no sudden jumps.',
   ms_ket_xau:'Overall, the air here had more pollution at the end of summer than at the start.',
   ms_ket_tot:'Overall, the air here was cleaner at the end of summer than at the start.',
@@ -1261,7 +1280,7 @@ function veJB() {
     + `<button class="ms" type="button" data-s="${c}" title="${t('jb_s')}" aria-label="${t('jb_s')}"><span>S</span></button></div>`).join('');
   capNhatJB(); veJBSo();
 }
-function veJBSo() {                                 // số của 4 bè = mốc đang xem ở màn Jukebox hành trình mùa hè
+function veJBSo() {                                 // số của 4 bè = mốc đang xem ở màn Jukebox Hành trình mùa hè
   if (!$('jb-be') || !$('jb-be').children.length) return;
   const o = NOI[tgNoi];
   for (const c of CHAT) {
@@ -1371,25 +1390,37 @@ function giaiThichMua(n) {
   const tbk = (a, x, y) => a.slice(x, y).reduce((s, v) => s + v, 0) / (y - x);
   const pha = j => t('ms_pha')[j < 3 ? 0 : j < 7 ? 1 : 2];      // đầu / giữa / cuối mùa
   const ds = CHAT.map(c => {
-    const a = o.chang[c], dau = tbk(a, 0, 3), cuoi = tbk(a, 7, 10);
-    const dinh = a.indexOf(Math.max(...a)), day = a.indexOf(Math.min(...a));
-    return { c, dau, cuoi, d: cuoi - dau, dinh, day, bien: Math.max(...a) - Math.min(...a) };
+    const a = o.chang[c], dau = Math.round(tbk(a, 0, 3)), cuoi = Math.round(tbk(a, 7, 10));
+    const max = Math.max(...a), min = Math.min(...a);
+    const hang = 1 + DS_NOI.filter(m => NOI[m].tb[c] > o.tb[c]).length;          // 1 = nhiều nhất trong 32 nơi
+    const uoc = Math.round(100 * o.that[c].filter(x => !x).length / N);           // % mốc phải ước lượng
+    return { c, dau, cuoi, d: cuoi - dau, max, min, kmax: a.indexOf(max), kmin: a.indexOf(min), bien: max - min, hang, uoc };
   });
-  const huong = x => x.d >= 15 ? 'tang_manh' : x.d >= 6 ? 'tang' : x.d <= -15 ? 'giam_manh' : x.d <= -6 ? 'giam' : 'deu';
-  const XU = { tang_manh:['⬆','#e2462b'], tang:['↗','#d9772a'], deu:['→','#5b7464'], giam:['↘','#2e9e44'], giam_manh:['⬇','#1e7a34'] };
-  let s = '<p class="ms-mo">' + t('ms_mo', { noi: '<b>' + tenNoi(n) + '</b>' }) + '</p>';
-  for (const x of ds) { const h = huong(x), [mui, mau] = XU[h];
-    s += `<div class="ms-hang" style="--nen-c:${NEN[x.c]}"><span class="bt">${ICON[x.c]}</span><span class="ten" style="color:${MAU[x.c]}">${t('ten_ngan')[x.c]}<span class="so">${Math.round(x.dau)} → ${Math.round(x.cuoi)}</span></span>`
-       + `<span class="ms-xu" style="color:${mau}">${mui} ${t('ms_' + h)}</span></div>`; }
-  s += '<p class="ms-noi-bat">🌱 ';
-  // chất nổi bật = thay đổi lớn nhất giữa đầu mùa và cuối mùa
-  const top = [...ds].sort((a, b) => Math.abs(b.d) - Math.abs(a.d))[0];
-  if (Math.abs(top.d) >= 6) s += t(top.d > 0 ? 'ms_noi_bat_tang' : 'ms_noi_bat_giam',
-      { c: '<b>' + ten(top.c) + '</b>', k: top.dinh + 1, pha: pha(top.dinh), y: t('gt_y')[top.c] });
-  else s += t('ms_on_dinh');
+  const huong = x => x.d >= 6 ? 'tang' : x.d <= -6 ? 'giam' : 'deu';
+  const muc = CHAT.map(c => mucDo(c, o.tb[c])), diem = muc.reduce((a, b) => a + b, 0);
+  const td = k => `<b class="mx-td">${t(k)}</b>`;
+  // 1. So với 32 thành phố
+  const noiBat = [...ds].sort((a, b) => a.hang - b.hang)[0];
+  let s = td('mx_ss_td') + '<p>' + t('mx_ss', { noi: '<b>' + tenNoi(n) + '</b>', tong: t('gt_tong')[diem <= 2 ? 0 : diem <= 5 ? 1 : 2] }) + '</p>';
+  s += '<p class="mx-hang"><i>' + t('mx_hang') + '</i><br>' + ds.map(x => `${ten(x.c)} <b>#${x.hang}</b>/${DS_NOI.length} <i>(${tenMuc(mucDo(x.c, o.tb[x.c]))})</i>`).join('<br>') + '</p>';
+  s += '<p>' + t('mx_noi_bat', { c: '<b>' + ten(noiBat.c) + '</b>', h: noiBat.hang, y: t('gt_y')[noiBat.c] }) + '</p>';
+  // 2. Cả mùa hè thay đổi thế nào
+  const nhom = k => ds.filter(x => huong(x) === k).map(x => `${ten(x.c)} (${x.dau} → ${x.cuoi})`).join(', ');
+  s += td('mx_doi_td') + '<p>';
+  for (const k of ['tang', 'giam', 'deu']) { const v = nhom(k); if (v) s += t('mx_' + k, { ds: v }) + ' '; }
   const tang = ds.filter(x => x.d >= 6).length, giam = ds.filter(x => x.d <= -6).length;
-  s += ' ' + (tang > giam ? t('ms_ket_xau') : giam > tang ? t('ms_ket_tot') : t('ms_ket_deu')) + '</p>';
-  s += `<span class="nho">💡 ${t('tg_chu')}</span><span class="nho">${t('gt_luu_y')}</span>`;
+  s += (tang > giam ? t('ms_ket_xau') : giam > tang ? t('ms_ket_tot') : t('ms_ket_deu')) + '</p>';
+  // 3. Lúc cao nhất, thấp nhất
+  const theoBien = [...ds].sort((a, b) => b.bien - a.bien), dao = theoBien[0], on = theoBien[theoBien.length - 1];
+  s += td('mx_dinh_td') + '<p>' + t('mx_dao', { c: '<b>' + ten(dao.c) + '</b>', min: dao.min, kmin: dao.kmin + 1, pmin: pha(dao.kmin), max: dao.max, kmax: dao.kmax + 1, pmax: pha(dao.kmax) })
+     + ' ' + t('mx_on', { c: ten(on.c), min: on.min, max: on.max }) + '</p>';
+  // 4. Nghe trong Jukebox
+  const doiNhat = [...ds].sort((a, b) => Math.abs(b.d) - Math.abs(a.d))[0];
+  s += td('mx_nghe_td') + '<p>' + t('mx_nghe_to', { c: '<b>' + ten(noiBat.c) + '</b>' }) + ' '
+     + (Math.abs(doiNhat.d) >= 6 ? t('mx_nghe_doi', { c: '<b>' + ten(doiNhat.c) + '</b>', am: t(doiNhat.d > 0 ? 'mx_am_tang' : 'mx_am_giam')[doiNhat.c] }) : t('mx_nghe_deu')) + '</p>';
+  // 5. Độ tin cậy
+  s += td('mx_tin_td') + '<p>' + t('mx_tin', { ds: ds.map(x => `${ten(x.c)} ${x.uoc}%`).join(' · ') }) + '</p>';
+  s += `<span class="nho">${t('gt_luu_y')}</span>`;
   return s;
 }
 // Đoạn giải thích tự động: vals = {PM25,O3,CO,NOx}, luc = 'tb' | 'moc' | 'chang'
