@@ -443,9 +443,17 @@
   .tg-the .tg-doan input[type=range] { position:absolute; inset:0; width:100%; height:100%; margin:0; opacity:0; cursor:pointer; }
   #tg-gt .mx-td { display:block; color:var(--vien); font-size:.95rem; margin:12px 0 4px; }
   #tg-gt .mx-td:first-child { margin-top:0; }
+  #tg-gt .mx-td b { color:inherit; }
   #tg-gt p { margin:0 0 4px; }
   #tg-gt .mx-hang { font-size:.86rem; line-height:1.6; background:#f4faf5; border-radius:12px; padding:6px 10px; margin:6px 0; }
   #tg-gt .mx-hang i { color:var(--nhat); font-style:normal; }
+  .wc-4-to { margin:0 0 6px; }
+  .nt-hang-to { margin:0 0 4px; }
+  .wc-4-to .wc-c { cursor:pointer; font-size:.85rem; }
+  .wc-4-to .wc-c b { font-size:2.8rem; height:3rem; }
+  .cn-the .cn-dong { display:block; margin-top:5px; font-size:.84rem; }
+  .cn-the.nhay { animation:cn-nhay 1.2s ease-out; }
+  @keyframes cn-nhay { 0%,40% { box-shadow:0 0 0 3px var(--mau-nut); } 100% { box-shadow:0 0 0 0 transparent; } }
   /* ===== Bàn trộn Jukebox + Song ca ===== */
   .tg-nhan:empty { display:none; }
   .tg-phat-to.dung::before { border:none; width:20px; height:22px; margin:0; border-left:7px solid currentColor; border-right:7px solid currentColor; }
@@ -575,7 +583,6 @@
             <rect class="wc-song" x="36" y="-8" width="5" height="16" rx="2.5" fill="#7ee08a"/>
           </g>
         </svg>
-        <div class="wc-4" id="wc-4"></div>
         <h1 data-i18n-html="wc_td_2"></h1>
         <p class="wc-loi" data-i18n-html="wc_loi_2"></p>
         <details class="wc-hop wc-nguon-nasa">
@@ -588,6 +595,16 @@
               <div class="ns-nguon">📎 NASA SVS 5533 – Air Quality Model Runs: <a href="https://svs.gsfc.nasa.gov/5533/" target="_blank" rel="noopener">svs.gsfc.nasa.gov/5533</a></div>
               <div class="ns-nguon">Visualizations: Helen-Nicole Kostis (USRA), Joseph V. Ardizzone (NASA/GSFC). Science: Lesley Ott (NASA/GSFC). DOI 10.5281/zenodo.16782803</div></div></div>
           </div>
+        </details>
+      </div>
+      <!-- Intro 3: gặp gỡ 4 nhân vật (4 chất khí) -->
+      <div class="wc-trang">
+        <div class="nt-hang nt-hang-to" id="o-am"></div>
+        <h1 data-i18n-html="wc_td_cn"></h1>
+        <p class="wc-loi" data-i18n-html="wc_loi_cn"></p>
+        <details class="wc-hop wc-sonif-hop" id="cn-hop">
+          <summary data-i18n="cn_td"></summary>
+          <div class="cot-tt" id="cn-ds"></div>
         </details>
       </div>
       <div class="wc-trang">
@@ -603,38 +620,6 @@
           <summary data-i18n="wc_sonif_td"></summary>
           <p class="wc-loi wc-dinh-nghia" data-i18n-html="wc_dinh_nghia"></p>
           <div id="dl-the" class="cot-tt"></div>
-        </details>
-      </div>
-      <!-- Intro 4: nghe thử 4 âm thanh -->
-      <div class="wc-trang">
-        <!-- Mầm Xanh đeo tai nghe, nốt nhạc bay lên -->
-        <svg class="wc-hinh" viewBox="0 0 200 200" aria-hidden="true">
-          <circle cx="100" cy="112" r="88" fill="#7ee08a" opacity=".12"/>
-          <g class="nt-vong"><circle cx="100" cy="118" r="70" fill="none" stroke="#7ee08a" stroke-width="2" opacity=".35"/></g>
-          <g class="nt-vong" style="animation-delay:1.2s"><circle cx="100" cy="118" r="70" fill="none" stroke="#7cc4ff" stroke-width="2" opacity=".3"/></g>
-          <g class="nt-nhun">
-            <path d="M100 78 C100 62 100 54 100 46" stroke="#3f9b3a" stroke-width="6" fill="none" stroke-linecap="round"/>
-            <ellipse cx="78" cy="52" rx="22" ry="12" fill="#6cc864" transform="rotate(-25 78 52)"/>
-            <ellipse cx="122" cy="52" rx="22" ry="12" fill="#6cc864" transform="rotate(25 122 52)"/>
-            <ellipse cx="100" cy="124" rx="50" ry="46" fill="#8fd982"/>
-            <path d="M54 118 C54 78 146 78 146 118" stroke="#f4f8fb" stroke-width="7" fill="none" stroke-linecap="round"/>
-            <rect x="42" y="108" width="18" height="30" rx="9" fill="#ff9fb3"/><rect x="140" y="108" width="18" height="30" rx="9" fill="#ff9fb3"/>
-            <path d="M82 120 q5 -6 10 0" stroke="#1d3b2a" stroke-width="4" fill="none" stroke-linecap="round"/>
-            <path d="M108 120 q5 -6 10 0" stroke="#1d3b2a" stroke-width="4" fill="none" stroke-linecap="round"/>
-            <ellipse cx="76" cy="134" rx="7" ry="4" fill="#ff9fb3" opacity=".7"/><ellipse cx="124" cy="134" rx="7" ry="4" fill="#ff9fb3" opacity=".7"/>
-            <path d="M90 140 Q100 150 110 140" stroke="#1d3b2a" stroke-width="4" fill="none" stroke-linecap="round"/>
-          </g>
-          <text class="nt-not" x="30" y="70" font-size="22" fill="#ffd76a">♪</text>
-          <text class="nt-not" x="160" y="62" font-size="26" fill="#7cc4ff" style="animation-delay:.9s">♫</text>
-          <text class="nt-not" x="168" y="120" font-size="18" fill="#ff8a80" style="animation-delay:1.7s">♪</text>
-          <text class="nt-not" x="22" y="130" font-size="20" fill="#b9a8ff" style="animation-delay:2.4s">♫</text>
-        </svg>
-        <h1 data-i18n-html="wc_td_4"></h1>
-        <p class="wc-loi" data-i18n="nt_hd"></p>
-        <div class="nt-hang" id="o-am"></div>
-        <details class="wc-hop wc-sonif-hop nt-hop">
-          <summary data-i18n="nt_hop"></summary>
-          <div class="cot-tt" id="nt-ds"></div>
         </details>
       </div>
     </div>
@@ -831,6 +816,13 @@ const CHU = {
   wc_loi_2:'Rồi tụi mình tìm thấy <b>NASA SVS 5533</b> (mô hình GEOS-CF), bản đồ của NASA dõi theo không khí trên khắp Trái Đất suốt mùa hè 2024, với 4 “nhân vật” chính: bụi mịn, ozone, khí CO và khí NOₓ.',
   wc_sonif:'App đọc màu bản đồ NASA tại mỗi thành phố và đổi thành mức 0–100 cho từng chất. Mỗi chất có một âm thanh riêng, và con số quyết định âm to hay nhỏ, cao hay trầm, thưa hay dồn dập. Bụi mịn là tiếng gió, ozone là chuông pha lê, khí CO là mộc cầm, khí NOₓ là trống thành phố. Cả 4 chơi cùng một nhịp nên ghép lại thành một bản nhạc. Tất cả do máy tự tạo từ con số, <b>không phải</b> tiếng thu từ bầu trời.',
   wc_sonif_td:'Sonification là gì? 🎼', wc_dinh_nghia:'<b>Sonification</b> (âm thanh hoá dữ liệu) là cách biến những con số thành âm thanh, để chúng ta có thể “nghe” dữ liệu thay vì chỉ nhìn. Giống như nhạc sĩ đọc bản nhạc rồi chơi thành giai điệu, Green Corner đọc dữ liệu không khí của NASA rồi chơi thành tiếng.', wc_s1:'Màu bản đồ', wc_s2:'Con số', wc_s3:'Âm thanh',
+  wc_td_cn:'Gặp gỡ <span class="noi">4 nhân vật</span>', wc_loi_cn:'Mỗi nhân vật là một chất trong không khí mà NASA theo dõi, và có một giọng riêng. Chạm vào từng bạn để nghe lúc ÍT, rồi lúc NHIỀU nhé!',
+  cn_td:'Các chất này là gì? 🧪', cn_tu:'Từ đâu ra:', cn_vi:'Vì sao cần để ý:', cn_am:'Âm thanh trong app:',
+  cn_the: {
+    PM25:['những hạt bụi siêu nhỏ, nhỏ hơn sợi tóc khoảng 30 lần, mắt thường không nhìn thấy.', 'khói xe, nhà máy, đốt rơm rạ, cháy rừng và bụi đường.', 'hạt rất nhỏ nên có thể theo hơi thở đi sâu vào phổi.'],
+    O3:['ozone ở sát mặt đất. Nó khác với tầng ozone trên cao giúp che chắn Trái Đất.', 'không thải ra trực tiếp, mà hình thành khi nắng chiếu vào khí từ xe cộ và nhà máy.', 'có thể làm ta ho, khó thở, và làm hại lá cây.'],
+    CO:['một khí không màu, không mùi.', 'đốt cháy không hết: khói xe, cháy rừng, đun nấu bằng than củi.', 'cản máu mang ô-xy đi nuôi cơ thể.'],
+    NOx:['nhóm khí nitơ ô-xít (NO và NO₂).', 'động cơ xe cộ và nhà máy điện.', 'làm đường thở khó chịu, và góp phần tạo ra ozone và mưa axit.'] },
   wc_nhan_3:'Hành trình của bạn', wc_td_3:'Sẵn sàng <span class="noi">lắng nghe</span>',
   wc_loi_3:'Mỗi nốt nhạc là một khu rừng đang thở, một cơn mưa đang rơi. Hãy lắng nghe thật kỹ, và yêu Trái Đất thêm một chút nhé. 💚',
   wc_buoc:[['🎧','Lắng nghe'],['💭','Tưởng tượng'],['🤔','Dự đoán'],['🛰️','NASA bật mí']],
@@ -870,7 +862,7 @@ const CHU = {
   g1:'🎧 Nghe tiếng đoán nơi', g1_mo:'Nghe bầu trời bí mật, chọn đúng thành phố', g1_hd:'Nghe "bản nhạc không khí" của một nơi bí mật, rồi chọn đúng nơi đó!', nghe_bi_mat:'🎧 Nghe nơi bí mật',
   g2:'🛰️ Dải màu bí ẩn', g2_mo:'Mảnh bản đồ NASA này là chất gì?', g2_hd:'Đây là một mảnh bản đồ NASA. Màu này là của chất nào?',
   g3:'📈 Ai thay đổi nhiều nhất?', g3_mo:'So 2 nơi qua 10 chặng mùa hè', g3_hd:'Nghe {c} của 2 nơi qua 10 chặng, mỗi chặng 1 nốt. Nốt lên là tăng, xuống là giảm. Nơi nào thay đổi nhiều hơn?',
-  g4:'👂 Đoán chất', g4_mo:'Tiếng này là của chất nào?', g4_hd:'Nghe một âm thanh, rồi đoán nó là của chất nào trong không khí!', nghe_tieng:'🎧 Nghe tiếng',
+  g4:'🎵 Đoán chất', g4_mo:'Tiếng này là của chất nào?', g4_hd:'Nghe một âm thanh, rồi đoán nó là của chất nào trong không khí!', nghe_tieng:'🎧 Nghe tiếng',
   g5:'🎨 Vẽ bầu trời dự đoán', g5_mo:'Đoán bầu trời trong hay mù bụi', g5_hd:'Chọn một nơi. Bạn nghĩ bụi mịn PM2.5 ở đó mùa hè 2024 thế nào?', chot:'🔒 Chốt dự đoán & xem NASA', ban_doan:'🎨 Bạn dự đoán', nasa_thay:'🛰️ NASA mô phỏng',
   g7:'🎼 Tai nào ồn hơn?', g7_mo:'Song ca hai thành phố bí mật', g7_hd:'Mỗi tai là một thành phố bí mật. Tai nào có nhiều {c} hơn?', g7_hd4:'Mỗi tai là một thành phố bí mật. Cộng cả 4 chất, tai nào “ồn” hơn?', g7_2tai:'🎧 Nghe hai tai', g7_lan:'🔁 Nghe lần lượt',
   g6:'🚨 Đội Tuần Tra Không Khí', g6_mo:'Xếp thành phố từ sạch đến bụi', g6_hd:'Chạm lần lượt 4 thành phố, từ nơi bạn nghĩ ÍT BỤI MỊN nhất đến NHIỀU nhất.', xem_xep:'🛰️ Xem NASA xếp hạng', chon_lai:'🔄 Chọn lại', dung_vi_tri:'Bạn xếp đúng {d}/4 vị trí.',
@@ -909,7 +901,7 @@ const CHU = {
   ms_pha:['đầu mùa','giữa mùa','cuối mùa'],
   ms_noi_bat_tang:'Tăng nhiều nhất là {c}, lên cao nhất ở chặng {k} ({pha}). {y}',
   ms_noi_bat_giam:'Giảm nhiều nhất là {c}: cao nhất ở chặng {k} ({pha}) rồi bớt dần. {y}',
-  mx_ss_td:'🌍 So với 32 thành phố', mx_ss:'Trong cả mùa hè 2024, không khí ở {noi} {tong}', mx_hang:'Xếp hạng (#1 = nhiều nhất):', mx_noi_bat:'Nổi bật nhất là {c}, đứng thứ {h} trong 32 nơi. {y}',
+  mx_ss_td:'🌍 So với 32 thành phố', mx_ss:'🌍 So với 32 thành phố, trong cả mùa hè 2024, không khí ở {noi} {tong}.', mx_hang:'Xếp hạng (#1 = nhiều nhất):', mx_noi_bat:'Nổi bật nhất là {c}, đứng thứ {h} trong 32 nơi. {y}',
   mx_doi_td:'📈 Cả mùa hè thay đổi thế nào?', mx_tang:'Tăng: {ds}.', mx_giam:'Giảm: {ds}.', mx_deu:'Gần như không đổi: {ds}.',
   mx_dinh_td:'⛰️ Lúc cao nhất, lúc thấp nhất', mx_dao:'{c} lên xuống nhiều nhất: thấp nhất {min} ở chặng {kmin} ({pmin}), cao nhất {max} ở chặng {kmax} ({pmax}).', mx_on:'Ổn định nhất là {c}, chỉ đổi trong khoảng {min}–{max}.',
   mx_nghe_td:'🎧 Khi nghe Jukebox', mx_nghe_to:'Bè {c} đáng chú ý nhất, vì so với các thành phố khác, đây là chất nơi này có nhiều nhất.', mx_nghe_doi:'Hãy để ý {c}: về cuối mùa {am}.', mx_nghe_deu:'Bản nhạc khá đều từ đầu đến cuối, vì không chất nào thay đổi nhiều.',
@@ -930,6 +922,13 @@ const CHU = {
   wc_loi_2:'Then we found <b>NASA SVS 5533</b> (GEOS-CF model), a NASA map that kept watch over the air across the whole Earth all through summer 2024, following 4 main “characters”: fine dust, ozone, CO and NOₓ.',
   wc_sonif:'The app reads the NASA map colour at each city and turns it into a 0–100 level for each gas. Each gas has its own sound, and that number decides whether it is loud or soft, high or low, slow or busy. Fine dust is the wind, ozone is a crystal bell, CO is a marimba and NOₓ is a city drum beat. All 4 play on the same beat, so together they make one piece of music. Every sound is made by the computer from the numbers, <b>not</b> recorded from the sky.',
   wc_sonif_td:'What is sonification? 🎼', wc_dinh_nghia:'<b>Sonification</b> means turning numbers into sound, so we can “hear” data instead of only looking at it. Just like a musician reads sheet music and plays a tune, Green Corner reads NASA air data and plays it as sound.', wc_s1:'Map colour', wc_s2:'Numbers', wc_s3:'Sound',
+  wc_td_cn:'Meet the <span class="noi">4 characters</span>', wc_loi_cn:'Each character is a gas in the air that NASA keeps an eye on, and each has its own voice. Tap each one to hear A LITTLE, then A LOT!',
+  cn_td:'What are these gases? 🧪', cn_tu:'Where it comes from:', cn_vi:'Why it matters:', cn_am:'Its sound in the app:',
+  cn_the: {
+    PM25:['tiny dust particles, about 30 times thinner than a hair, too small to see.', 'vehicle exhaust, factories, crop burning, wildfires and road dust.', 'the particles are so small they can travel deep into our lungs when we breathe.'],
+    O3:['ozone near the ground. It is different from the high ozone layer that shields the Earth.', 'it is not released directly; it forms when sunlight hits gases from traffic and factories.', 'it can make us cough and feel short of breath, and it harms plant leaves.'],
+    CO:['a gas with no colour and no smell.', 'burning that is not complete: vehicle exhaust, wildfires, cooking with coal or wood.', 'it stops our blood from carrying oxygen around the body.'],
+    NOx:['a group of nitrogen oxide gases (NO and NO₂).', 'vehicle engines and power plants.', 'it irritates our airways and helps form ozone and acid rain.'] },
   wc_nhan_3:'Your journey', wc_td_3:'Ready to <span class="noi">listen</span>',
   wc_loi_3:'Every note is a forest breathing, a raindrop falling. Listen closely, and fall a little more in love with our planet. 💚',
   wc_buoc:[['🎧','Listen'],['💭','Imagine'],['🤔','Predict'],['🛰️','NASA Reveal']],
@@ -969,7 +968,7 @@ const CHU = {
   g1:'🎧 Guess the place', g1_mo:'Hear a secret sky, pick the city', g1_hd:'Listen to the "air music" of a secret place, then pick the right one!', nghe_bi_mat:'🎧 Hear the secret place',
   g2:'🛰️ Mystery colour', g2_mo:'Which gas is this NASA map piece?', g2_hd:'This is a piece of the NASA map. Which gas does this colour show?',
   g3:'📈 Who changed most?', g3_mo:'Compare 2 places over 10 stages', g3_hd:'Hear {c} at 2 places over 10 stages, one note per stage. Up means rising, down means falling. Which place changed more?',
-  g4:'👂 Guess the gas', g4_mo:'Which gas makes this sound?', g4_hd:'Listen to a sound, then guess which gas in the air it stands for!', nghe_tieng:'🎧 Hear the sound',
+  g4:'🎵 Guess the gas', g4_mo:'Which gas makes this sound?', g4_hd:'Listen to a sound, then guess which gas in the air it stands for!', nghe_tieng:'🎧 Hear the sound',
   g5:'🎨 Draw the sky', g5_mo:'Guess clear or hazy', g5_hd:'Pick a place. How much fine dust (PM2.5) do you think it had in summer 2024?', chot:'🔒 Lock in & see NASA', ban_doan:'🎨 Your guess', nasa_thay:'🛰️ NASA model',
   g7:'🎼 Which ear is noisier?', g7_mo:'A duet of two secret cities', g7_hd:'Each ear is a secret city. Which ear has more {c}?', g7_hd4:'Each ear is a secret city. Adding all 4 gases, which ear is “noisier”?', g7_2tai:'🎧 Both ears', g7_lan:'🔁 One by one',
   g6:'🚨 Air Patrol', g6_mo:'Rank cities from clean to dusty', g6_hd:'Tap the 4 cities in order, from the LEAST fine dust to the MOST.', xem_xep:'🛰️ See NASA ranking', chon_lai:'🔄 Reset', dung_vi_tri:'You got {d}/4 positions right.',
@@ -1008,7 +1007,7 @@ const CHU = {
   ms_pha:['early summer','mid-summer','late summer'],
   ms_noi_bat_tang:'The biggest rise was {c}, which peaked in stage {k} ({pha}). {y}',
   ms_noi_bat_giam:'The biggest drop was {c}: it was highest in stage {k} ({pha}) and then eased off. {y}',
-  mx_ss_td:'🌍 Compared with 32 cities', mx_ss:'Over summer 2024, the air in {noi} {tong}', mx_hang:'Ranking (#1 = the most):', mx_noi_bat:'It stands out most for {c}, ranked {h} of 32 places. {y}',
+  mx_ss_td:'🌍 Compared with 32 cities', mx_ss:'🌍 Compared with 32 cities, over summer 2024 the air in {noi} {tong}.', mx_hang:'Ranking (#1 = the most):', mx_noi_bat:'It stands out most for {c}, ranked {h} of 32 places. {y}',
   mx_doi_td:'📈 How did summer change?', mx_tang:'Rose: {ds}.', mx_giam:'Fell: {ds}.', mx_deu:'About the same: {ds}.',
   mx_dinh_td:'⛰️ Highest and lowest', mx_dao:'{c} went up and down the most: lowest {min} in stage {kmin} ({pmin}), highest {max} in stage {kmax} ({pmax}).', mx_on:'The steadiest was {c}, only moving between {min} and {max}.',
   mx_nghe_td:'🎧 Listening in the Jukebox', mx_nghe_to:'The {c} track matters most, because compared with other cities this is the gas this place has the most of.', mx_nghe_doi:'Listen for {c}: towards late summer {am}.', mx_nghe_deu:'The music stays fairly even from start to end, because no gas changed much.',
@@ -1196,17 +1195,25 @@ document.addEventListener('click', e => { const b = e.target.closest('[data-di]'
 const VAO = {};
 
 // ---------- WELCOME ----------
+document.addEventListener('click', e => {
+  const b = e.target.closest('#wc-4 .wc-c'); if (!b) return;
+  const c = CHAT.find(x => b.classList.contains('wc-c-' + x)), the = $('cn-' + c); if (!the) return;
+  $('cn-hop').open = true;
+  document.querySelectorAll('.cn-the').forEach(x => x.classList.remove('nhay'));
+  void the.offsetWidth; the.classList.add('nhay'); the.scrollIntoView({ behavior:'smooth', block:'nearest' });
+});
 let wcTrang = 0;
+const SO_WC = document.querySelectorAll('.wc-trang').length;   // 5 trang intro
 function veWelcome() {
   document.querySelectorAll('.wc-trang').forEach((p,i)=>p.classList.toggle('hien', i===wcTrang));
   document.querySelectorAll('#wc-cham i').forEach((p,i)=>p.classList.toggle('hien', i===wcTrang));
-  $('wc-tiep').textContent = wcTrang < 3 ? t('tiep') : t('vao');
+  $('wc-tiep').textContent = wcTrang < SO_WC - 1 ? t('tiep') : t('vao');
 }
 // rắc sao lên trời (intro + trang chủ)
 ['wc-bau-troi'].forEach(id => { const troi = $(id); for (let k=0;k<60;k++) { const s = document.createElement('i');
   s.style.left = Math.random()*100+'%'; s.style.top = Math.random()*75+'%'; s.style.animationDelay = (Math.random()*3).toFixed(2)+'s';
   s.style.width = s.style.height = (Math.random() < .15 ? 3 : 2)+'px'; troi.appendChild(s); } });
-$('wc-tiep').onclick = () => { dungAm(); if (wcTrang < 3) { wcTrang++; veWelcome(); } else di('man-chao'); };
+$('wc-tiep').onclick = () => { dungAm(); if (wcTrang < SO_WC - 1) { wcTrang++; veWelcome(); } else di('man-chao'); };
 // nút ↩ góc trên phải: về intro trước; ở intro 1 thì về trang chủ
 $('wc-bo-qua').onclick = () => { if (wcTrang > 0) { wcTrang--; veWelcome(); } else di('man-chao'); };
 $('nut-cau-chuyen').onclick = () => { wcTrang = 0; veWelcome(); di('man-welcome'); };
@@ -1401,7 +1408,7 @@ function giaiThichMua(n) {
   const td = k => `<b class="mx-td">${t(k)}</b>`;
   // 1. So với 32 thành phố
   const noiBat = [...ds].sort((a, b) => a.hang - b.hang)[0];
-  let s = td('mx_ss_td') + '<p>' + t('mx_ss', { noi: '<b>' + tenNoi(n) + '</b>', tong: t('gt_tong')[diem <= 2 ? 0 : diem <= 5 ? 1 : 2] }) + '</p>';
+  let s = `<b class="mx-td">${t('mx_ss', { noi: tenNoi(n), tong: t('gt_tong')[diem <= 2 ? 0 : diem <= 5 ? 1 : 2] })}</b>`;
   s += '<p class="mx-hang"><i>' + t('mx_hang') + '</i><br>' + ds.map(x => `${ten(x.c)} <b>#${x.hang}</b>/${DS_NOI.length} <i>(${tenMuc(mucDo(x.c, o.tb[x.c]))})</i>`).join('<br>') + '</p>';
   s += '<p>' + t('mx_noi_bat', { c: '<b>' + ten(noiBat.c) + '</b>', h: noiBat.hang, y: t('gt_y')[noiBat.c] }) + '</p>';
   // 2. Cả mùa hè thay đổi thế nào
@@ -1581,8 +1588,8 @@ VAO['man-chang'] = () => {
 
 // ---------- MINIGAME ----------
 const GAME = [
-  { id:'g1', hinh:'🎧', bg:'#dff3ff' }, { id:'g2', hinh:'🛰️', bg:'#efe8ff' }, { id:'g3', hinh:'📈', bg:'#fff1d6' },
-  { id:'g4', hinh:'👂', bg:'#e3f8e6' }, { id:'g5', hinh:'🎨', bg:'#ffe4ec' }, { id:'g6', hinh:'🚨', bg:'#fff8c9' },
+  { id:'g2', hinh:'🛰️', bg:'#efe8ff' }, { id:'g4', hinh:'🎵', bg:'#e3f8e6' }, { id:'g1', hinh:'🎧', bg:'#dff3ff' },
+  { id:'g3', hinh:'📈', bg:'#fff1d6' }, { id:'g5', hinh:'🎨', bg:'#ffe4ec' }, { id:'g6', hinh:'🚨', bg:'#fff8c9' },
   { id:'g7', hinh:'🎼', bg:'#e6f0ff' },
 ];
 const SO_LUOT = 5;
@@ -1792,15 +1799,16 @@ const MAU_SANG = { PM25:'#f2c27c', O3:'#b9a8ff', CO:'#ff8a80', NOx:'#7ee08a' }; 
 function veOAm() {
   const hop = $('o-am'); hop.innerHTML = '';
   for (const c of CHAT) {
-    const b = document.createElement('button'); b.type = 'button'; b.className = 'bong'; b.style.setProperty('--m', MAU_SANG[c]);
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'bong'; b.style.setProperty('--m', MAU[c]);
     b.innerHTML = `<span class="tron">${ICON[c]}</span><span class="ten">${t('ten_ngan')[c]}</span><span class="muc"></span>`;
     b.setAttribute('aria-label', t('ten_ngan')[c] + ': ' + t('am_mo')[c]);
     b.onclick = () => ngheThu(c, b);
     hop.appendChild(b);
   }
-  $('nt-ds').innerHTML = CHAT.map(c => `<div class="the-tt"><span class="bt">${ICON[c]}</span><span><b style="color:${MAU_SANG[c]}">${t('ten_ngan')[c]}</b> · ${t('am_mo')[c]}</span></div>`).join('');
+  if ($('nt-ds')) $('nt-ds').innerHTML = CHAT.map(c => `<div class="the-tt"><span class="bt">${ICON[c]}</span><span><b style="color:${MAU_SANG[c]}">${t('ten_ngan')[c]}</b> · ${t('am_mo')[c]}</span></div>`).join('');
 }
 function ngheThu(c, b) {
+  const the = $('cn-' + c); if (the && $('cn-hop').open) { document.querySelectorAll('.cn-the').forEach(x => x.classList.remove('nhay')); void the.offsetWidth; the.classList.add('nhay'); }
   am(); dungAm(); dungDoc();
   document.querySelectorAll('.bong').forEach(x => x.classList.remove('dang'));
   void b.offsetWidth; b.classList.add('dang');
@@ -1819,9 +1827,13 @@ function apDung() {
   document.querySelectorAll('[data-i18n-html]').forEach(el => el.innerHTML = t(el.dataset.i18nHtml));
   document.querySelectorAll('[data-aria]').forEach(el => { el.title = t(el.dataset.aria); el.setAttribute('aria-label', t(el.dataset.aria)); });
   $('f-tieng').textContent = lang === 'vi' ? 'EN' : 'VI';
+  $('cn-ds').innerHTML = CHAT.map(c => { const x = t('cn_the')[c];
+    return `<div class="the-tt cn-the" id="cn-${c}"><span class="bt">${ICON[c]}</span><span><b style="color:${MAU[c]}">${tenChat(c)}</b> · ${x[0]}`
+      + `<span class="cn-dong">🏭 <b>${t('cn_tu')}</b> ${x[1]}</span><span class="cn-dong">⚠️ <b>${t('cn_vi')}</b> ${x[2]}</span>`
+      + `<span class="cn-dong">🎵 <b>${t('cn_am')}</b> ${t('am_mo')[c]}</span></span></div>`; }).join('');
   $('dl-the').innerHTML = t('sonif_the').map(([b,x]) => `<div class="the-tt"><span class="bt">${b}</span><span>${x}</span></div>`).join('');
   veOAm();
-  $('wc-4').innerHTML = CHAT.map(c=>`<div class="wc-c wc-c-${c}"><b>${ICON[c]}</b><span>${tenChat(c)}</span></div>`).join('');
+  if ($('wc-4')) $('wc-4').innerHTML = CHAT.map(c=>`<div class="wc-c wc-c-${c}"><b>${ICON[c]}</b><span>${tenChat(c)}</span></div>`).join('');
   const nguonHtml = [
     `<li>${t('du_lieu')[0][1]}</li>`,
     `<li>NASA SVS 5533 – Air Quality Model Runs: <a href="https://svs.gsfc.nasa.gov/5533/" target="_blank" rel="noopener">svs.gsfc.nasa.gov/5533</a></li>`,
