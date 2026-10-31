@@ -435,6 +435,12 @@
   :is(#man-ban-do,#man-chang) .ch-mini { margin-top:4px; }
   .ms-muc { font-size:.72rem; font-weight:800; padding:3px 9px; border-radius:999px; background:#fff; white-space:nowrap; }
   .kp-nha { margin:14px 0 4px; flex-shrink:0; }
+  /* thanh trượt dạng 10 đoạn (giống thanh chặng) */
+  .tg-doan { position:relative; margin:12px 2px 4px; height:22px; display:flex; align-items:center; }
+  .tg-doan-o { flex:1; display:grid; grid-template-columns:repeat(10,1fr); gap:4px; }
+  .tg-doan-o i { height:8px; border-radius:4px; background:rgba(30,107,47,.14); overflow:hidden; }
+  .tg-doan-o i b { display:block; height:100%; width:0; background:var(--mau-nut); border-radius:4px; }
+  .tg-the .tg-doan input[type=range] { position:absolute; inset:0; width:100%; height:100%; margin:0; opacity:0; cursor:pointer; }
   /* ===== Bàn trộn Jukebox + Song ca ===== */
   .tg-nhan:empty { display:none; }
   .tg-phat-to.dung::before { border:none; width:20px; height:22px; margin:0; border-left:7px solid currentColor; border-right:7px solid currentColor; }
@@ -664,7 +670,7 @@
       <p class="tc-khau" data-i18n="khau_hieu"></p>
       <div class="tc-nut-ds">
         <button class="tc-nut" id="nut-cau-chuyen" type="button"><b data-i18n="xem_lai"></b><small data-i18n="tc_1m"></small></button>
-        <button class="tc-nut" data-di="man-kham-pha" type="button"><b data-i18n="tc_2"></b><small data-i18n="tc_2m"></small></button>
+        <button class="tc-nut" data-di="man-thoi-gian" type="button"><b data-i18n="tc_2"></b><small data-i18n="tc_2m"></small></button>
         <button class="tc-nut" data-di="man-minigame" type="button"><b data-i18n="tc_3"></b><small data-i18n="tc_3m"></small></button>
       </div>
     </div>
@@ -678,7 +684,6 @@
     <div class="bo-the">
       <button class="the the-dai" data-di="man-thoi-gian" type="button"><span class="hinh">🎵</span><span><span class="ten" data-i18n="kp_tg"></span><span class="mo" data-i18n="kp_tg_mo"></span></span></button>
       <button class="the the-dai" data-di="man-song-ca" type="button"><span class="hinh">🎧</span><span><span class="ten" data-i18n="kp_sc"></span><span class="mo" data-i18n="kp_sc_mo"></span></span></button>
-      <button class="the the-dai" data-di="man-ban-do" type="button"><span class="hinh">🎚️</span><span><span class="ten" data-i18n="kp_dd"></span><span class="mo" data-i18n="kp_dd_mo"></span></span></button>
     </div>
   </section>
 
@@ -694,8 +699,6 @@
       <div class="jb-chang" id="jb-chang"></div>
       <div class="ds-noi cuon" id="bd-ds"></div>
     </div>
-    <div class="jb-be" id="jb-be"></div>
-    <p class="nho jb-meo" data-i18n-html="jb_meo"></p>
     <div class="tg-luoi" id="noi-so" hidden style="display:none"></div>
     <details class="gt-hop">
       <summary data-i18n="gt_td"></summary>
@@ -708,6 +711,7 @@
   <section class="man" id="man-song-ca">
     <button class="nut-ve" data-di="man-kham-pha" type="button" data-aria="ve"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/></svg></button>
     <h2 data-i18n="sc_td"></h2>
+    <p class="nho" data-i18n="sc_hd"></p>
     <div class="tg-the">
       <div class="khung-bd tg-bd" id="sc-khung"><img id="sc-anh" alt=""><span class="ghim to sc-ga" id="sc-ga"></span><span class="ghim to sc-gb" id="sc-gb"></span>
         <span class="tg-nhan tg-nhan-ten" id="sc-dang"></span><span class="tg-nhan tg-nhan-moc" id="sc-moc"></span>
@@ -728,8 +732,9 @@
 
   <!-- THEO THỜI GIAN -->
   <section class="man" id="man-thoi-gian">
-    <button class="nut-ve" data-di="man-kham-pha" type="button" data-aria="ve"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/></svg></button>
+    <button class="nut-ve" data-di="man-chao" type="button" data-aria="ve"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/></svg></button>
     <h2 data-i18n="tg_td"></h2>
+    <p class="nho" data-i18n="tg_hd"></p>
     <div class="tg-the">
       <div class="khung-bd tg-bd"><img id="tg-anh" alt=""><span class="ghim to" id="tg-ghim"></span>
         <span class="tg-nhan tg-nhan-ten" id="tg-ten"></span><span class="tg-nhan tg-nhan-moc" id="tg-moc"></span>
@@ -739,12 +744,13 @@
           <button type="button" data-toc="280" class="chon">1×</button>
           <button type="button" data-toc="160">🐇</button>
         </div></div>
-      <input type="range" id="tg-thanh" min="0" max="299" value="0">
-      <div class="tg-mua"><span data-i18n="dau_mua"></span><span data-i18n="cuoi_mua"></span></div>
-      <div class="tg-chang-ds" id="tg-chang"></div>
+      <div class="tg-doan"><div class="tg-doan-o" id="tg-doan"><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i></div><input type="range" id="tg-thanh" min="0" max="299" value="0"></div>
+      <div class="tg-chang-ds" id="tg-chang" hidden style="display:none"></div>
       <div class="ds-noi cuon" id="tg-ds"></div>
     </div>
     <div class="tg-luoi" id="tg-so" hidden style="display:none"></div>
+    <div class="jb-be" id="jb-be"></div>
+    <p class="nho jb-meo" data-i18n-html="jb_meo"></p>
     <details class="gt-hop">
       <summary data-i18n="gt_td"></summary>
       <div class="giai-thich" id="tg-gt"></div>
@@ -826,11 +832,11 @@ const CHU = {
   wc_hoi:'Đôi tai của bạn có khám phá được điều mà đôi mắt có thể bỏ lỡ?',
   chao:'🌱 Chào bạn! Mình là <b>Mầm Xanh</b>. Cùng mình nghe xem bầu trời ở khắp nơi đang thở thế nào nhé!',
   khau_hieu:'Từ một góc xanh nhỏ, lắng nghe bầu trời của cả Trái Đất',
-  bat_dau:'Bắt đầu khám phá', mg_nut:'🎮 Minigame', xem_lai:'📖 Câu chuyện Green Corner', tc_1:'Câu chuyện Green Corner', tc_1m:'Góc xanh nhỏ & 4 âm thanh', tc_2:'🌍 Bắt đầu khám phá', tc_2m:'Nghe không khí ở 32 thành phố', tc_3:'🎮 Minigame', tc_3m:'6 trò chơi bằng đôi tai', ve:'⬅ Về', ve_du_lieu:'ℹ️ Về dữ liệu', nt_td:'🎧 Nghe thử 4 âm thanh', wc_td_4:'Nghe thử <span class="noi">4 âm thanh</span> 🎧', nt_hd:'Mỗi chất có một giọng riêng. Chạm vào từng bạn nhỏ để nghe lúc ÍT, rồi lúc NHIỀU nhé!', nt_hop:'🌱 Mầm Xanh giải thích', it:'Ít…', nhieu:'Nhiều!',
+  bat_dau:'Bắt đầu khám phá', mg_nut:'🎮 Minigame', xem_lai:'📖 Câu chuyện Green Corner', tc_1:'Câu chuyện Green Corner', tc_1m:'Góc xanh nhỏ & 4 âm thanh', tc_2:'🎵 Jukebox hành trình mùa hè', tc_2m:'Nghe không khí 32 thành phố thay đổi suốt mùa hè', tc_3:'🎮 Minigame', tc_3m:'7 trò chơi bằng đôi tai', ve:'⬅ Về', ve_du_lieu:'ℹ️ Về dữ liệu', nt_td:'🎧 Nghe thử 4 âm thanh', wc_td_4:'Nghe thử <span class="noi">4 âm thanh</span> 🎧', nt_hd:'Mỗi chất có một giọng riêng. Chạm vào từng bạn nhỏ để nghe lúc ÍT, rồi lúc NHIỀU nhé!', nt_hop:'🌱 Mầm Xanh giải thích', it:'Ít…', nhieu:'Nhiều!',
   kp_td:'🌍 Khám phá', kp_hoi:'Bạn muốn khám phá theo cách nào?',
-  kp_tg:'Hành trình mùa hè', kp_tg_mo:'Kéo hoặc phát để nghe không khí đổi thay cả mùa hè 2024',
+  kp_tg:'Jukebox hành trình mùa hè', kp_tg_mo:'Nghe không khí thay đổi suốt mùa hè 2024, tắt bật từng bè nhạc',
   kp_sc:'Song ca hai thành phố', kp_sc_mo:'Tai trái một nơi, tai phải một nơi: nơi nào “ồn” hơn?',
-  sc_td:'🎧 Song ca hai thành phố', sc_hd:'Đeo tai nghe nhé: tai trái nghe nơi A, tai phải nghe nơi B. Không có tai nghe thì chọn “Lần lượt”.',
+  sc_td:'🎧 Song ca hai thành phố', sc_hd:'Chọn hai nơi A và B, rồi bấm ▶ để nghe bản nhạc của hai nơi cùng lúc hoặc lần lượt.', tg_hd:'Bấm ▶ hoặc kéo thanh trượt để nghe không khí thay đổi suốt mùa hè.',
   sc_a:'🅰️ Tai trái', sc_b:'🅱️ Tai phải', sc_2tai:'🎧 Hai tai cùng lúc', sc_lan:'🔁 Lần lượt',
   sc_mo:'Trung bình cả mùa hè 2024:', sc_hon:'{n} nhiều hơn', sc_bang:'gần bằng',
   sc_kl:'Trong cả mùa hè 2024, {n} có nhiều chất hơn ở {x}/4 chất.', sc_kl_bang:'Trong cả mùa hè 2024, hai nơi khá ngang nhau.', sc_khac:'Khác nhau nhiều nhất là {c}: {a} {va}, {b} {vb}.', sc_giong:'Trong cả mùa hè 2024, hai nơi giống nhau ở mọi chất, thử chọn nơi khác xa hơn nhé!',
@@ -849,7 +855,7 @@ const CHU = {
   ns_3:'<b>Green Corner – “đôi tai” nghe bức tranh.</b> App đọc màu trên video SVS 5533 tại từng thành phố, đổi thành số 0–100 rồi thành âm thanh. Vì đọc từ màu nên số chỉ để so sánh các nơi, không phải số đo thật.',
   ns_nguon:'Nguồn tham khảo',
   muc:'Mức', thap:'thấp', vua_muc:'vừa', cao:'cao', so_voi:'so với 32 thành phố',
-  tg_td:'🎵 Hành trình mùa hè', tg_goi_y:'Chọn thành phố (vuốt ngang để xem thêm)', uoc_luong:'ước lượng', phat:'▶ Phát', tam_dung:'⏸ Dừng', nhanh:'Nhanh', vua:'Vừa', cham:'Chậm',
+  tg_td:'🎵 Jukebox hành trình mùa hè', tg_goi_y:'Chọn thành phố (vuốt ngang để xem thêm)', uoc_luong:'ước lượng', phat:'▶ Phát', tam_dung:'⏸ Dừng', nhanh:'Nhanh', vua:'Vừa', cham:'Chậm',
   dau_mua:'Đầu mùa hè', cuoi_mua:'Cuối mùa hè', moc:'Mốc {i}/300',
   tg_chu:'Chấm nhạt = mốc NASA không có dải chất đó đi qua thành phố, app ước lượng từ mốc gần nhất. Số 0–100 là mức tương đối đọc từ màu, không phải nồng độ đo thật.',
   ch_td:'🧭 Theo chặng', chang_k:'Chặng {k}/10', ch_hd:'Chạm vào một chặng để nghe. Chặng 1 là đầu mùa hè 2024, chặng 10 là cuối mùa.',
@@ -861,6 +867,7 @@ const CHU = {
   g3:'📈 Ai thay đổi nhiều nhất?', g3_mo:'So 2 nơi qua 10 chặng mùa hè', g3_hd:'Nghe {c} của 2 nơi qua 10 chặng, mỗi chặng 1 nốt. Nốt lên là tăng, xuống là giảm. Nơi nào thay đổi nhiều hơn?',
   g4:'👂 Đoán chất', g4_mo:'Tiếng này là của chất nào?', g4_hd:'Nghe một âm thanh, rồi đoán nó là của chất nào trong không khí!', nghe_tieng:'🎧 Nghe tiếng',
   g5:'🎨 Vẽ bầu trời dự đoán', g5_mo:'Đoán bầu trời trong hay mù bụi', g5_hd:'Chọn một nơi. Bạn nghĩ bụi mịn PM2.5 ở đó mùa hè 2024 thế nào?', chot:'🔒 Chốt dự đoán & xem NASA', ban_doan:'🎨 Bạn dự đoán', nasa_thay:'🛰️ NASA mô phỏng',
+  g7:'🎼 Tai nào ồn hơn?', g7_mo:'Song ca hai thành phố bí mật', g7_hd:'Mỗi tai là một thành phố bí mật. Tai nào có nhiều {c} hơn?', g7_hd4:'Mỗi tai là một thành phố bí mật. Cộng cả 4 chất, tai nào “ồn” hơn?', g7_2tai:'🎧 Nghe hai tai', g7_lan:'🔁 Nghe lần lượt',
   g6:'🚨 Đội Tuần Tra Không Khí', g6_mo:'Xếp thành phố từ sạch đến bụi', g6_hd:'Chạm lần lượt 4 thành phố, từ nơi bạn nghĩ ÍT BỤI MỊN nhất đến NHIỀU nhất.', xem_xep:'🛰️ Xem NASA xếp hạng', chon_lai:'🔄 Chọn lại', dung_vi_tri:'Bạn xếp đúng {d}/4 vị trí.',
   vung_a:'Châu Á', vung_au:'Châu Âu & Phi', vung_my:'Châu Mỹ',
   troi_trong:'Trong lành', troi_mo:'Hơi mờ', troi_mu:'Mù bụi',
@@ -917,11 +924,11 @@ const CHU = {
   wc_hoi:'Can your ears discover something your eyes might miss?',
   chao:'🌱 Hi! I\'m <b>Sprout</b>. Let\'s listen to how the sky is breathing all around the world!',
   khau_hieu:'From one small green corner, listen to the sky of the whole Earth',
-  bat_dau:'Start exploring', mg_nut:'🎮 Mini-games', xem_lai:'📖 The Green Corner story', tc_1:'The Green Corner story', tc_1m:'A little green corner & 4 sounds', tc_2:'🌍 Start exploring', tc_2m:'Hear the air in 32 cities', tc_3:'🎮 Mini-games', tc_3m:'6 games for your ears', ve:'⬅ Back', ve_du_lieu:'ℹ️ About the data', nt_td:'🎧 Try the 4 sounds', wc_td_4:'Try the <span class="noi">4 sounds</span> 🎧', nt_hd:'Each gas has its own voice. Tap each little friend to hear A LITTLE, then A LOT!', nt_hop:'🌱 Sprout explains', it:'A little…', nhieu:'A lot!',
+  bat_dau:'Start exploring', mg_nut:'🎮 Mini-games', xem_lai:'📖 The Green Corner story', tc_1:'The Green Corner story', tc_1m:'A little green corner & 4 sounds', tc_2:'🎵 Summer journey Jukebox', tc_2m:'Hear the air of 32 cities change all summer', tc_3:'🎮 Mini-games', tc_3m:'7 games for your ears', ve:'⬅ Back', ve_du_lieu:'ℹ️ About the data', nt_td:'🎧 Try the 4 sounds', wc_td_4:'Try the <span class="noi">4 sounds</span> 🎧', nt_hd:'Each gas has its own voice. Tap each little friend to hear A LITTLE, then A LOT!', nt_hop:'🌱 Sprout explains', it:'A little…', nhieu:'A lot!',
   kp_td:'🌍 Explore', kp_hoi:'How would you like to explore?',
-  kp_tg:'Summer journey', kp_tg_mo:'Drag or play to hear the air change through summer 2024',
+  kp_tg:'Summer journey Jukebox', kp_tg_mo:'Hear the air change through summer 2024, mute and solo each track',
   kp_sc:'City duet', kp_sc_mo:'One city in each ear: which one is “noisier”?',
-  sc_td:'🎧 City duet', sc_hd:'Put on headphones: your left ear hears city A, your right ear hears city B. No headphones? Choose “One by one”.',
+  sc_td:'🎧 City duet', sc_hd:'Pick two places, A and B, then tap ▶ to hear their songs together or one by one.', tg_hd:'Tap ▶ or drag the slider to hear the air change through the summer.',
   sc_a:'🅰️ Left ear', sc_b:'🅱️ Right ear', sc_2tai:'🎧 Both ears', sc_lan:'🔁 One by one',
   sc_mo:'Summer 2024 average:', sc_hon:'{n} has more', sc_bang:'about equal',
   sc_kl:'Over the whole summer of 2024, {n} had more of {x} out of 4 gases.', sc_kl_bang:'Over the whole summer of 2024, the two places were fairly even.', sc_khac:'The biggest difference was {c}: {a} {va}, {b} {vb}.', sc_giong:'Over the whole summer of 2024, the two places were alike for every gas — try a place further away!',
@@ -940,7 +947,7 @@ const CHU = {
   ns_3:'<b>Green Corner – the “ears” that listen to the picture.</b> The app reads the colours of the SVS 5533 video at each city, turns them into 0–100 numbers and then into sound. Because it reads colours, the numbers are for comparing places, not real measurements.',
   ns_nguon:'References',
   muc:'Level', thap:'low', vua_muc:'medium', cao:'high', so_voi:'compared with 32 cities',
-  tg_td:'🎵 Summer journey', tg_goi_y:'Pick a city (swipe sideways for more)', uoc_luong:'estimate', phat:'▶ Play', tam_dung:'⏸ Pause', nhanh:'Fast', vua:'Medium', cham:'Slow',
+  tg_td:'🎵 Summer journey Jukebox', tg_goi_y:'Pick a city (swipe sideways for more)', uoc_luong:'estimate', phat:'▶ Play', tam_dung:'⏸ Pause', nhanh:'Fast', vua:'Medium', cham:'Slow',
   dau_mua:'Early summer', cuoi_mua:'Late summer', moc:'Step {i}/300',
   tg_chu:'Faded dots = steps where that band did not cross the city; the app estimates them from the nearest steps. 0–100 is a relative level read from colour, not a measured concentration.',
   ch_td:'🧭 By stage', ch_hd:'Tap a stage to listen. Stage 1 is early summer 2024, stage 10 is late summer.',
@@ -952,6 +959,7 @@ const CHU = {
   g3:'📈 Who changed most?', g3_mo:'Compare 2 places over 10 stages', g3_hd:'Hear {c} at 2 places over 10 stages, one note per stage. Up means rising, down means falling. Which place changed more?',
   g4:'👂 Guess the gas', g4_mo:'Which gas makes this sound?', g4_hd:'Listen to a sound, then guess which gas in the air it stands for!', nghe_tieng:'🎧 Hear the sound',
   g5:'🎨 Draw the sky', g5_mo:'Guess clear or hazy', g5_hd:'Pick a place. How much fine dust (PM2.5) do you think it had in summer 2024?', chot:'🔒 Lock in & see NASA', ban_doan:'🎨 Your guess', nasa_thay:'🛰️ NASA model',
+  g7:'🎼 Which ear is noisier?', g7_mo:'A duet of two secret cities', g7_hd:'Each ear is a secret city. Which ear has more {c}?', g7_hd4:'Each ear is a secret city. Adding all 4 gases, which ear is “noisier”?', g7_2tai:'🎧 Both ears', g7_lan:'🔁 One by one',
   g6:'🚨 Air Patrol', g6_mo:'Rank cities from clean to dusty', g6_hd:'Tap the 4 cities in order, from the LEAST fine dust to the MOST.', xem_xep:'🛰️ See NASA ranking', chon_lai:'🔄 Reset', dung_vi_tri:'You got {d}/4 positions right.',
   vung_a:'Asia', vung_au:'Europe & Africa', vung_my:'Americas',
   troi_trong:'Clear', troi_mo:'A bit hazy', troi_mu:'Very hazy',
@@ -1230,7 +1238,7 @@ VAO['man-ban-do'] = () => {
   $('bd-anh').src = ANH[0].src;
   veGhim($('bd-khung'), DS_NOI, chonNoi);
   veChip($('bd-ds'), DS_NOI, chonNoi, noiHien);
-  veJB(); chonNoi(noiHien);
+  chonNoi(noiHien);
 };
 // ---------- BÀN TRỘN JUKEBOX ----------
 const JB = { tat:{}, rieng:{}, be:null };
@@ -1241,7 +1249,7 @@ function dungBaiUI() {
   for (const id of ['jb-chang', 'sc-chang']) { const h = $(id); if (h) [...h.children].forEach(x => x.className = ''); }
   for (const id of ['jb-moc', 'sc-moc', 'sc-dang']) if ($(id)) $(id).textContent = '';
   document.querySelectorAll('#sc-khung .ghim').forEach(g => g.classList.remove('sang'));
-  veJBSo(-1);
+  veJBSo();
 }
 const veChangDs = (hop, k) => [...hop.children].forEach((x, j) => { x.className = j < k ? 'qua' : j === k ? 'dang' : ''; });
 const anhChang = k => ANH[Math.min(11, Math.round(D.khung[k*30 + 15] / 150))].src;   // hình NASA ở giữa chặng
@@ -1251,15 +1259,14 @@ function veJB() {
     + `<span class="ten">${t('ten_ngan')[c]}</span><span class="jb-bar"><i></i></span><span class="so"></span>`
     + `<button class="ms" type="button" data-m="${c}" title="${t('jb_m')}" aria-label="${t('jb_m')}"><span>M</span></button>`
     + `<button class="ms" type="button" data-s="${c}" title="${t('jb_s')}" aria-label="${t('jb_s')}"><span>S</span></button></div>`).join('');
-  capNhatJB(); veJBSo(-1);
+  capNhatJB(); veJBSo();
 }
-function veJBSo(k) {                                 // k = chặng đang phát; -1 = trung bình cả mùa
+function veJBSo() {                                 // số của 4 bè = mốc đang xem ở màn Jukebox hành trình mùa hè
   if (!$('jb-be') || !$('jb-be').children.length) return;
-  const o = NOI[noiHien];
+  const o = NOI[tgNoi];
   for (const c of CHAT) {
-    const v = k >= 0 ? o.chang[c][k] : o.tb[c], h = $('jb-' + c);
-    h.querySelector('.jb-bar i').style.width = v + '%'; h.querySelector('.so').textContent = v;
-    if (k >= 0) { h.classList.remove('keu'); void h.offsetWidth; h.classList.add('keu'); }
+    const v = o.so[c][tgI], h = $('jb-' + c);
+    h.querySelector('.jb-bar i').style.width = v + '%'; h.querySelector('.so').textContent = (o.that[c][tgI] ? '' : '≈') + v;
   }
 }
 function capNhatJB() {
@@ -1425,7 +1432,8 @@ function veTG() {
   const p = xy(o.lat, o.lon); $('tg-ghim').style.left = (p.x/960*100)+'%'; $('tg-ghim').style.top = (p.y/540*100)+'%';
   $('tg-moc').textContent = t('moc', { i: i+1 });
   $('tg-ten').textContent = '📍 ' + tenNoi(tgNoi);
-  veOTG(o, i);
+  veOTG(o, i); veJBSo();
+  [...$('tg-doan').children].forEach((x, j) => { x.firstChild.style.width = Math.max(0, Math.min(1, (i + 1 - j*30) / 30)) * 100 + '%'; });
   document.querySelectorAll('#tg-chang button').forEach((b, j) => b.classList.toggle('chon', j === Math.floor(i/30)));
   const v = {}; for (const c of CHAT) v[c] = o.so[c][i];
   if ($('tg-gt').dataset.noi !== tgNoi + lang) { $('tg-gt').innerHTML = giaiThichMua(tgNoi); $('tg-gt').dataset.noi = tgNoi + lang; }
@@ -1433,13 +1441,14 @@ function veTG() {
 function buocTG() {
   const o = NOI[tgNoi], i = tgI, t0 = ctx.currentTime + .02, d = tgToc/1000;
   // mỗi mốc = 1 bước nhạc; 4 chất cùng nhịp thành "bản nhạc không khí"
-  for (const c of CHAT) BUOC[c](o.so[c][i]/100, t0, i % 8, tongAm);
+  for (const c of CHAT) BUOC[c](o.so[c][i]/100, t0, i % 8, JB.be ? JB.be[c] : tongAm);
 }
 $('tg-thanh').oninput = e => { tgI = +e.target.value; veTG(); };
 $('tg-chang').onclick = e => { const b = e.target.closest('button'); if (!b) return; tgI = +b.dataset.k * 30; $('tg-thanh').value = tgI; veTG(); };
 $('tg-phat').onclick = () => {
   if (tgHen) { dungAm(); return; }
-  am(); $('tg-phat').setAttribute('aria-label', t('tam_dung')); $('tg-phat').title = t('tam_dung'); $('tg-phat').classList.add('dang');
+  am(); JB.be = {}; for (const c of CHAT) { JB.be[c] = ctx.createGain(); JB.be[c].connect(tongAm); } capNhatJB();
+  $('tg-phat').setAttribute('aria-label', t('tam_dung')); $('tg-phat').title = t('tam_dung'); $('tg-phat').classList.add('dang');
   const chay = () => { if (tgI >= N-1) { dungAm(); return; } buocTG(); tgI++; $('tg-thanh').value = tgI; veTG(); };
   tgHen = setInterval(chay, tgToc);
 };
@@ -1486,6 +1495,7 @@ function veOTG(o, i) {
   }
 }
 VAO['man-thoi-gian'] = () => {
+  veJB();
   $('tg-phat').setAttribute('aria-label', t(tgHen ? 'tam_dung' : 'phat')); $('tg-phat').title = t(tgHen ? 'tam_dung' : 'phat');
   [['cham'],['vua'],['nhanh']].forEach(([k], j) => { const b = $('tg-toc').children[j]; b.title = t(k); b.setAttribute('aria-label', t(k)); });
   veChip($('tg-ds'), DS_NOI, (n) => { tgNoi = n; dungAm(); VAO['man-thoi-gian'](); }, tgNoi);
@@ -1542,6 +1552,7 @@ VAO['man-chang'] = () => {
 const GAME = [
   { id:'g1', hinh:'🎧', bg:'#dff3ff' }, { id:'g2', hinh:'🛰️', bg:'#efe8ff' }, { id:'g3', hinh:'📈', bg:'#fff1d6' },
   { id:'g4', hinh:'👂', bg:'#e3f8e6' }, { id:'g5', hinh:'🎨', bg:'#ffe4ec' }, { id:'g6', hinh:'🚨', bg:'#fff8c9' },
+  { id:'g7', hinh:'🎼', bg:'#e6f0ff' },
 ];
 const SO_LUOT = 5;
 let G = null;     // trạng thái trò đang chơi
@@ -1593,7 +1604,7 @@ function khoangCach(a, b) { return Math.sqrt(CHAT.reduce((s,c)=>s+(NOI[a].tb[c]-
 
 function luotMoi() {
   G.daChon = false;
-  ({ g1:luotG1, g2:luotG2, g3:luotG3, g4:luotG4, g5:luotG5, g6:luotG6 })[G.id]();
+  ({ g1:luotG1, g2:luotG2, g3:luotG3, g4:luotG4, g5:luotG5, g6:luotG6, g7:luotG7 })[G.id]();
 }
 // G1: nghe đoán nơi
 function luotG1() {
@@ -1632,6 +1643,35 @@ function luotG3() {
   than.appendChild(hang);
   than.appendChild(boTheChon([a,b], dung, theNoi, () => {
     $('g-kq').innerHTML += `<br><span class="nho">${tenNoi(a)}: ${NOI[a].chang[c].join(' → ')}<br>${tenNoi(b)}: ${NOI[b].chang[c].join(' → ')}</span>`;
+  }));
+}
+// G7: tai nào ồn hơn? (song ca hai thành phố bí mật)
+function luotG7() {
+  const ca4 = Math.random() < .25, c = ca4 ? null : tron([...CHAT])[0];
+  const diem = n => ca4 ? CHAT.reduce((s, x) => s + NOI[n].tb[x], 0) : NOI[n].tb[c];
+  let a, b, tries = 0;
+  do { [a, b] = tron(DS_NOI).slice(0, 2); tries++; } while (Math.abs(diem(a) - diem(b)) < (ca4 ? 40 : 15) && tries < 300);
+  const dung = diem(a) > diem(b) ? 'A' : 'B';
+  const than = khungGame(ca4 ? t('g7_hd4') : t('g7_hd', { c: ICON[c] + ' ' + t('ngan_chat')[c] }));
+  const nghe = che => {                               // che: 2 = hai tai cùng lúc, 1 = lần lượt
+    am();
+    const mk = pan => {
+      const g = ctx.createGain(), tat = ctx.createGain(); g.gain.value = .8; tat.gain.value = 0; tat.connect(tongAm);
+      if (ctx.createStereoPanner) { const p = ctx.createStereoPanner(); p.pan.value = pan; g.connect(p); p.connect(tongAm); } else g.connect(tongAm);
+      const out = {}; for (const x of CHAT) out[x] = ca4 || x === c ? g : tat;   // chỉ phát chất đang hỏi
+      return out;
+    };
+    phatBai(che === 2 ? [{ noi: a, out: mk(-.9), buocChang: 4 }, { noi: b, out: mk(.9), buocChang: 4 }]
+                      : [{ noi: a, out: mk(0), buocChang: 3 }, { noi: b, out: mk(0), buocChang: 3, batDau: 30*NHIP + 1 }]);
+  };
+  const hang = document.createElement('div'); hang.className = 'hang';
+  hang.appendChild(nut(t('g7_2tai'), 'nut nut-chinh', () => nghe(2)));
+  hang.appendChild(nut(t('g7_lan'), 'nut nut-phu', () => nghe(1)));
+  than.appendChild(hang);
+  const theTai = x => `<span class="hinh">${x === 'A' ? '🅰️' : '🅱️'}</span><span class="ten">${t(x === 'A' ? 'sc_a' : 'sc_b').replace(/^\S+\s/, '')}</span>`;
+  than.appendChild(boTheChon(['A', 'B'], dung, theTai, () => {
+    const dong = (x, n) => `${x} <b>${tenNoi(n)}</b>: ` + (ca4 ? CHAT.map(k => `${ICON[k]} ${NOI[n].tb[k]}`).join(' · ') : `${ICON[c]} ${NOI[n].tb[c]}`);
+    $('g-kq').innerHTML += `<br><span class="nho">${dong('🅰️', a)}<br>${dong('🅱️', b)}</span>`;
   }));
 }
 // G4: đoán chất
