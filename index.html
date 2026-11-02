@@ -483,7 +483,7 @@
   /* Đội tuần tra: 4 ghim trên bản đồ */
   #man-game .g6-bd { max-width:350px; overflow:visible; }
   #man-game .g6-bd img { border-radius:11px; }
-  .g6-ghim { position:absolute; transform:translate(-50%,-50%); border:none; background:none; padding:0; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:2px; z-index:2; }
+  .g6-ghim { position:absolute; width:max-content; transform:translate(-50%,-50%); border:none; background:none; padding:0; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:2px; z-index:2; }
   .g6-ghim .g6-so { width:30px; height:30px; border-radius:50%; background:#fff; border:3px solid #d6336c; display:grid; place-items:center; font:inherit; font-weight:900; font-size:.95rem; color:#d6336c; box-shadow:0 2px 6px rgba(0,0,0,.35); }
   .g6-ghim.phai { align-items:flex-end; transform:translate(calc(-100% + 15px),-15px); }
   .g6-ghim.trai { align-items:flex-start; transform:translate(-15px,-15px); }
@@ -878,10 +878,10 @@ const CHU = {
   wc_nhan_1:'Câu chuyện của tụi mình', wc_td_1:'<span class="noi">Một góc xanh nhỏ</span>',
   wc_loi_1:'Một bạn trong nhóm tự tay vun lên một góc xanh. Nhưng rồi tụi mình nhận ra: cây non cũng cần <b>không khí sạch</b> để thở. Vậy không khí trên cả Trái Đất đang thế nào?',
   wc_nhan_2:'Dữ liệu NASA', wc_td_2:'<span class="noi">Nhịp thở</span> của Trái Đất',
-  wc_loi_2:'Rồi tụi mình tìm thấy <b>NASA SVS 5533</b> (mô hình GEOS-CF), bản đồ của NASA dõi theo không khí trên khắp Trái Đất suốt mùa hè 2024, với 4 “nhân vật” chính: bụi mịn, ozone, khí CO và khí NOₓ.',
+  wc_loi_2:'Rồi, tụi mình tìm thấy một bản đồ do NASA xây dựng, mô phỏng diễn biến chất lượng không khí trên toàn cầu trong suốt mùa hè năm 2024. (<b>NASA SVS 5533</b> - mô hình GEOS-CF)',
   wc_sonif:'App đọc màu bản đồ NASA tại mỗi thành phố và đổi thành mức 0–100 cho từng chất. Mỗi chất có một âm thanh riêng, và con số quyết định âm to hay nhỏ, cao hay trầm, thưa hay dồn dập. Bụi mịn là tiếng gió, ozone là chuông pha lê, khí CO là mộc cầm, khí NOₓ là trống thành phố. Cả 4 chơi cùng một nhịp nên ghép lại thành một bản nhạc. Tất cả do máy tự tạo từ con số, <b>không phải</b> tiếng thu từ bầu trời.',
   wc_sonif_td:'Sonification là gì? 🎼', wc_dinh_nghia:'<b>Sonification</b> (âm thanh hoá dữ liệu) là cách biến những con số thành âm thanh, để chúng ta có thể “nghe” dữ liệu thay vì chỉ nhìn. Giống như nhạc sĩ đọc bản nhạc rồi chơi thành giai điệu, Green Corner đọc dữ liệu không khí của NASA rồi chơi thành tiếng.', wc_s1:'Màu bản đồ', wc_s2:'Con số', wc_s3:'Âm thanh',
-  wc_td_cn:'Gặp gỡ <span class="noi">4 nhân vật</span>', wc_loi_cn:'Mỗi nhân vật là một chất trong không khí mà NASA theo dõi, và có một giọng riêng. Chạm vào từng bạn để nghe lúc ÍT, rồi lúc NHIỀU nhé!',
+  wc_td_cn:'Gặp gỡ <span class="noi">4 nhân vật</span>', wc_loi_cn:'Đây là 4 “nhân vật” mà NASA theo dõi trên bản đồ không khí toàn cầu. Mỗi bạn là một thành phần trong không khí, với những đặc điểm và mức độ khác nhau.<br>Chạm vào từng bạn để khám phá âm thanh khi nồng độ ở mức THẤP và CAO nhé!',
   cn_td:'Các chất này là gì? 🧪', cn_tu:'Từ đâu ra:', cn_vi:'Vì sao cần để ý:', cn_am:'Âm thanh trong app:',
   cn_the: {
     PM25:['những hạt bụi siêu nhỏ, nhỏ hơn sợi tóc khoảng 30 lần, mắt thường không nhìn thấy.', 'khói xe, nhà máy, đốt rơm rạ, cháy rừng và bụi đường.', 'hạt rất nhỏ nên có thể theo hơi thở đi sâu vào phổi.'],
@@ -889,7 +889,7 @@ const CHU = {
     CO:['một khí không màu, không mùi.', 'đốt cháy không hết: khói xe, cháy rừng, đun nấu bằng than củi.', 'cản máu mang ô-xy đi nuôi cơ thể.'],
     NOx:['nhóm khí nitơ ô-xít (NO và NO₂).', 'động cơ xe cộ và nhà máy điện.', 'làm đường thở khó chịu, và góp phần tạo ra ozone và mưa axit.'] },
   wc_nhan_3:'Hành trình của bạn', wc_td_3:'Sẵn sàng <span class="noi">lắng nghe</span>',
-  wc_loi_3:'Mỗi nốt nhạc là một khu rừng đang thở, một cơn mưa đang rơi. Hãy lắng nghe thật kỹ, và yêu Trái Đất thêm một chút nhé. 💚',
+  wc_loi_3:'Từ những dữ liệu trên bản đồ, tụi mình sẽ biến các con số thành âm thanh. Mỗi nốt nhạc mang một tín hiệu riêng, giúp bạn cảm nhận nhịp điệu của Trái Đất theo một cách thật khác biệt. Cùng lắng nghe nhé! 💚',
   wc_buoc:[['🎧','Lắng nghe'],['💭','Tưởng tượng'],['🤔','Dự đoán'],['🛰️','NASA bật mí']],
   wc_hoi:'Đôi tai của bạn có khám phá được điều mà đôi mắt có thể bỏ lỡ?',
   chao:'🌱 Chào bạn! Mình là <b>Mầm Xanh</b>. Cùng mình nghe xem bầu trời ở khắp nơi đang thở thế nào nhé!',
@@ -912,8 +912,8 @@ const CHU = {
   anh_luc:'Ảnh {i}/12 · dải {c}',
   nghe_ca4:'🎶 Nghe cả 4', dung:'⏹️ Dừng', nghe:'▶ Nghe',
   nguon_td:'Nguồn dữ liệu NASA 📡',
-  ns_1:'<b>GEOS-CF – “bộ não” tính toán.</b> Đây là một mô hình máy tính của nhóm NASA GMAO. Nó kết hợp dữ liệu quan sát (trong đó có vệ tinh) với các phép tính về gió và phản ứng hoá học, để ước tính lượng bụi mịn, ozone, CO và NOₓ ở khắp Trái Đất. Tên đầy đủ: Goddard Earth Observing System – Composition Forecasting.',
-  ns_2:'<b>SVS 5533 – “bức tranh” từ những con số đó.</b> SVS (Scientific Visualization Studio) là xưởng làm hình ảnh khoa học của NASA. Trang số 5533 biến kết quả GEOS-CF mùa hè 2024 thành video bản đồ thế giới: mỗi dải màu là một chất, màu càng đậm là càng nhiều.',
+  ns_1:'<b>GEOS-CF hay Goddard Earth Observing System – Composition Forecasting - “bộ não” của bản đồ.</b> Đây là mô hình máy tính do NASA phát triển. Mô hình kết hợp dữ liệu quan sát (bao gồm cả dữ liệu vệ tinh) với các phép tính về chuyển động của gió và phản ứng hóa học trong khí quyển, từ đó ước tính nồng độ bụi mịn, ozone, CO và NOₓ trên khắp Trái Đất.',
+  ns_2:'<b>SVS (Scientific Visualization Studio)</b> là xưởng làm hình ảnh khoa học của NASA. Trang số 5533 biến kết quả GEOS-CF mùa hè 2024 thành video bản đồ thế giới: mỗi dải màu là một chất, màu càng đậm là càng nhiều.',
   ns_3:'<b>Green Corner – “đôi tai” nghe bức tranh.</b> App đọc màu trên video SVS 5533 tại từng thành phố, đổi thành số 0–100 rồi thành âm thanh. Vì đọc từ màu nên số chỉ để so sánh các nơi, không phải số đo thật.',
   ns_nguon:'Nguồn tham khảo',
   muc:'Mức', thap:'thấp', vua_muc:'vừa', cao:'cao', so_voi:'so với 32 thành phố',
@@ -1878,16 +1878,18 @@ function luotG6() {
   G.soLuot = 4; G.toiDa = 16;
   if (!G.dsChat) G.dsChat = tron([...CHAT]);
   const c = G.dsChat[G.luot];
-  // 4 nơi cách xa nhau trên bản đồ (dễ chạm) và có số khác nhau rõ
-  let ds = [], tries = 0;
-  do {
-    ds = []; for (const n of tron(DS_NOI)) {
-      const p = xy(NOI[n].lat, NOI[n].lon);
-      if (ds.every(m => { const q = xy(NOI[m].lat, NOI[m].lon); return Math.hypot(p.x-q.x, p.y-q.y) > 150 && Math.abs(NOI[m].tb[c]-NOI[n].tb[c]) >= 5; })) ds.push(n);
-      if (ds.length === 4) break;
+  // 4 nơi cách xa nhau trên bản đồ (dễ chạm) và có số khác nhau rõ; nới dần điều kiện nếu chưa tìm được
+  let ds = [];
+  for (const [kc, chenh] of [[150, 5], [120, 5], [90, 3], [60, 1], [0, 0]]) {
+    for (let tries = 0; tries < 60 && ds.length < 4; tries++) {
+      ds = []; for (const n of tron(DS_NOI)) {
+        const p = xy(NOI[n].lat, NOI[n].lon);
+        if (ds.every(m => { const q = xy(NOI[m].lat, NOI[m].lon); return Math.hypot(p.x-q.x, p.y-q.y) > kc && Math.abs(NOI[m].tb[c]-NOI[n].tb[c]) >= chenh; })) ds.push(n);
+        if (ds.length === 4) break;
+      }
     }
-    tries++;
-  } while (ds.length < 4 && tries < 50);
+    if (ds.length === 4) break;
+  }
   const than = khungGame(t('g6_hd', { c: '<b>' + ICON[c] + ' ' + t('ngan_chat')[c] + '</b>' }));
   const khung = document.createElement('div'); khung.className = 'khung-bd g6-bd';
   khung.innerHTML = `<img src="${ANH[Math.floor(Math.random()*12)].src}" alt="">`;
